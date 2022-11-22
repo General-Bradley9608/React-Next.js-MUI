@@ -5,9 +5,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 /* Components */
-import ProTip from "@src/components/ProTip";
-import Link from "@src/components/Link";
-import Copyright from "@src/components/Copyright";
+import ProTip from "@components/ProTip";
+import Link from "@components/Link";
+import Copyright from "@components/Copyright";
 
 export default function About() {
   return (

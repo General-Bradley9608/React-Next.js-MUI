@@ -1,4 +1,6 @@
 import * as React from "react";
+
+/* MUI */
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -9,12 +11,38 @@ import ProTip from "@components/ProTip";
 import Link from "@components/Link";
 import Copyright from "@components/Copyright";
 
+const styled = {
+  height: "100%",
+  position: "relative",
+  padding: "2rem 0rem",
+  zIndex: "0",
+  "::before": {
+    content: "' '",
+    backgroundColor: "#f2f2f2",
+    position: "absolute",
+    zIndex: "-1",
+    top: "-30rem",
+    bottom: 0,
+    right: "-10rem",
+    width: "1152px",
+    height: "980px",
+    transform: "rotate(-45deg)",
+    borderRadius: "20px",
+  },
+};
+
 export default function Index() {
   return (
-    <Container maxWidth="lg" sx={{ height: "100vh" }}>
-      <Typography variant="h1" md="h5" fontSize={{ xs: "2rem", sm: "3rem" }}>
+    <Container maxWidth="lg" sx={styled}>
+      <Typography
+        variant="h1"
+        md="h5"
+        fontSize={{ xs: "2rem", sm: "3rem" }}
+        color="secondary.light"
+      >
         MUI Administrator Theme
       </Typography>
+      <div>A premium Theme for your Next.js Website Application</div>
       <Box sx={{ my: 4 }}>
         <Grid
           container
@@ -34,6 +62,7 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -55,6 +84,7 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -76,6 +106,7 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -97,6 +128,7 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -104,7 +136,7 @@ export default function Index() {
                 <Box>User Sign In Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <Link
               href="/auth/signup"
@@ -118,6 +150,8 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -125,7 +159,7 @@ export default function Index() {
                 <Box>User Sign Up Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <Link
               href="/blog/Blog"
@@ -139,6 +173,8 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -146,7 +182,7 @@ export default function Index() {
                 <Box>Blog Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <Link
               href="/albums"
@@ -160,6 +196,8 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -167,7 +205,7 @@ export default function Index() {
                 <Box>Albums Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <Link
               href="/chart"
@@ -181,6 +219,8 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -188,7 +228,7 @@ export default function Index() {
                 <Box>Charts Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
           <Grid item xs={2} sm={4} md={4}>
             <Link
               href="/checkout"
@@ -202,6 +242,8 @@ export default function Index() {
                   boxShadow: "1",
                   p: 5,
                   borderRadius: ".5rem",
+
+                  backgroundColor: "white",
                   ":hover": { boxShadow: "3" },
                 }}
               >
@@ -209,7 +251,7 @@ export default function Index() {
                 <Box>Checkout Interface</Box>
               </Box>
             </Link>
-          </Grid>          
+          </Grid>
         </Grid>
       </Box>
       <Typography variant="h4" component="h1" gutterBottom>
