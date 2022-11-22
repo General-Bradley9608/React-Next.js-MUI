@@ -18,8 +18,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-
-import { mainListItems, secondaryListItems } from "../pages/listItems";
+import {
+  mainListItems,
+  secondaryListItems,
+} from "@components/ListMenu/listItems";
 
 function Copyright(props) {
   return (
@@ -85,7 +87,7 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-function DashboardContent({children}) {
+function DashboardContent({ children }) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -170,6 +172,6 @@ function DashboardContent({children}) {
   );
 }
 
-export default function DashboardLayout({children}) {
+export default function DashboardLayout({ children }) {
   return <DashboardContent>{children}</DashboardContent>;
 }
