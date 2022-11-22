@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 /* Components */
-import ProTip from "@src/componentsProTip";
+import ProTip from "@src/components/ProTip";
 import Link from "@src/components/Link";
 import Copyright from "@src/components/Copyright";
 
