@@ -2,9 +2,10 @@ import { Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-import DashboardLayout from "layouts/DashboardLayout";
-
-import Card from "../components/Card/MediaCard";
+/* Layouts */
+import DashboardLayout from "@layouts/DashboardLayout";
+/* Components */
+import Card from "@components/Card/MediaCard";
 
 export default function PageCard() {
   return (

@@ -3,9 +3,11 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import ProTip from "../components/ProTip";
-import Link from "../components/Link";
-import Copyright from "../components/Copyright";
+
+/* Components */
+import ProTip from "@components/ProTip";
+import Link from "@components/Link";
+import Copyright from "@components/Copyright";
 
 export default function Index() {
   return (
@@ -189,7 +191,7 @@ export default function Index() {
           </Grid>          
           <Grid item xs={2} sm={4} md={4}>
             <Link
-              href="/checkout/Checkout"
+              href="/checkout"
               sx={{
                 textDecoration: "none",
                 ":hover": { color: "primary.light" },

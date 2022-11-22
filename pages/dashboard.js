@@ -3,14 +3,14 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-import DashboardLayout from "layouts/DashboardLayout";
-
-import Chart from "../components/Chart/ReChart";
-import Deposits from "../components/Deposits";
-import Orders from "../components/Orders";
+/* Layouts */
+import DashboardLayout from "@layouts/DashboardLayout";
+/* Components */
+import Chart from "@components/Chart/ReChart";
+import Deposits from "@components/Deposits";
+import Orders from "@components/Orders";
 
 import shadows from "@mui/material/styles/shadows";
-
 
 export default function Dashboard() {
   return (

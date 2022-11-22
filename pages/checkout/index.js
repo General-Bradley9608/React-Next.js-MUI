@@ -11,7 +11,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
@@ -59,7 +59,6 @@ export default function Checkout() {
 
   return (
     <>
-      {/* <ThemeProvider theme={theme}> */}
       <CssBaseline />
       <AppBar
         position="absolute"
@@ -125,7 +124,6 @@ export default function Checkout() {
         </Paper>
         <Copyright />
       </Container>
-      {/* </ThemeProvider> */}
     </>
   );
 }

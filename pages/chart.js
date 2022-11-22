@@ -1,9 +1,10 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-import DashboardLayout from "layouts/DashboardLayout";
-
-import Chart from "../components/Chart/ReChart";
+/* Layouts */
+import DashboardLayout from "@layouts/DashboardLayout";
+/* Components */
+import Chart from "@components/Chart/ReChart";
 
 export default function PageChart() {
   return (
