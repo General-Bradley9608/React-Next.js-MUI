@@ -48,26 +48,32 @@ const theme = createTheme({
     h1: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
     h2: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
     h3: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
     h4: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
     h5: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
     h6: {
       // fontFamily: roboto.style.fontFamily,
       fontWeight: "600",
+      lineHeight: 1.5,
     },
   },
 });

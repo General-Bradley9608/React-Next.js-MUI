@@ -109,10 +109,29 @@ function DashboardContent({ children }) {
   };
 
   const itemsNotify = [
-    { id: 1, title: "tiele one", text: "lorem ipasudj odl dola " },
-    { id: 2, title: "tiele two", text: "lorem ipasudj odl dola " },
-    { id: 3, title: "tiele three", text: "lorem ipasudj odl dola " },
-    { id: 4, title: "tiele four", text: "lorem ipasudj odl dola " },
+    {
+      id: 1,
+      title: "Completely synergize resource taxing relationships",
+      text: "Interactively coordinate proactive e-commerce via process-centric thinking. Completely pursue scalable customer service through sustainable potentialities. Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or sources.",
+    },
+    {
+      id: 2,
+      title:
+        "Objectively innovate empowered manufactured products whereas parallel",
+      text: "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures.",
+    },
+    {
+      id: 3,
+      title:
+        "Proactively envisioned multimedia based expertise and cross-media growth strategies",
+      text: "Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.",
+    },
+    {
+      id: 4,
+      title:
+        "Phosfluorescently engage worldwide methodologies with web-enabled technology",
+      text: "Completely synergize scalable e-commerce rather than high standards in e-services. Assertively iterate resource maximizing products after leading-edge intellectual capital.",
+    },
   ];
 
   return (

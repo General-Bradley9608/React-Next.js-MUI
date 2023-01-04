@@ -1,9 +1,13 @@
 import * as React from "react";
 import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Markdown from "./Markdown";
+
+import TimerIcon from "@mui/icons-material/TimerOutlined";
+import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 
 function Main(props) {
   const { posts, title } = props;
@@ -16,18 +20,32 @@ function Main(props) {
       md={8}
       sx={{
         "& .markdown": {
-          py: 3,
+          py: 2,
         },
       }}
     >
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h5" gutterBottom>
         {title}
       </Typography>
       <Divider />
       {posts.map((post, index) => (
-        <Markdown className="markdown" key={post.data.date + index + 1}>
-          {post.content}
-        </Markdown>
+        <Box
+          key={post.data.date + index}
+          sx={{ bgcolor: "grey.100", mb: 2, px: 2, pb: 2 }}
+          boxShadow="lg"
+        >
+          <Typography variant="h6" component="h3" pt={2}>
+            {post.data.title}
+          </Typography>
+          <Markdown className="markdown">
+            {post.content}
+            {/* {post.excerpt} */}
+          </Markdown>
+          <TimerIcon sx={{ verticalAlign: "middle", mr: 0.5 }} />
+          {post.data.date} -{" "}
+          <UserIcon sx={{ verticalAlign: "middle", mr: 0.5 }} />
+          {post.data.author}
+        </Box>
       ))}
     </Grid>
   );

@@ -56,13 +56,13 @@ export const mainListItems = (
       <ListItemIcon>
         <CardTravelIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary={<Link href="/reports">Reports</Link>} />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary={<Link href="/blog">Blogs</Link>} />
     </ListItemButton>
   </React.Fragment>
 );

@@ -49,6 +49,7 @@ function Header(props) {
               flexShrink: 0,
               borderRadius: 5,
               border: 1,
+              mr: 1,
               textDecoration: "none",
               color: "primary.100",
               bgcolor: "grey.100",

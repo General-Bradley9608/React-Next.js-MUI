@@ -1,13 +1,13 @@
 import * as React from "react";
-// import CssBaseline from "@mui/material/CssBaseline";
+
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+
 import matter from "gray-matter";
 
-// import { createTheme /* , ThemeProvider */ } from "@mui/material/styles";
 import Header from "@components/Blog/Header";
 import MainFeaturedPost from "@components/Blog/MainFeaturedPost";
 import FeaturedPost from "@components/Blog/FeaturedPost";
@@ -44,7 +44,7 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: "Featured post",
-    date: "Nov 12",
+    date: "Nov 12, 2022",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     image: "https://source.unsplash.com/random",
@@ -52,7 +52,7 @@ const featuredPosts = [
   },
   {
     title: "Post title",
-    date: "Nov 11",
+    date: "Nov 11, 2022",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     image: "https://source.unsplash.com/random",
@@ -88,8 +88,6 @@ const sidebar = {
   ],
 };
 
-// const theme = createTheme();
-
 export default function Blog() {
   return (
     <>
@@ -103,7 +101,7 @@ export default function Blog() {
             ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="From the firehose" posts={posts} />
+            <Main title="From the staff" posts={posts} />
             <Sidebar
               title={sidebar.title}
               description={sidebar.description}
