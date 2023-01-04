@@ -1,21 +1,23 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+// import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Header from "./Header";
-import MainFeaturedPost from "./MainFeaturedPost";
-import FeaturedPost from "./FeaturedPost";
-import Main from "./Main";
-import Sidebar from "./Sidebar";
-import Footer from "./Footer";
+import matter from "gray-matter";
 
-// import post1 from './blog-post.1.md';
-// import post2 from './blog-post.2.md';
-// import post3 from './blog-post.3.md';
+// import { createTheme /* , ThemeProvider */ } from "@mui/material/styles";
+import Header from "@components/Blog/Header";
+import MainFeaturedPost from "@components/Blog/MainFeaturedPost";
+import FeaturedPost from "@components/Blog/FeaturedPost";
+import Main from "@components/Blog/Main";
+import Sidebar from "@components/Blog/Sidebar";
+import Footer from "@components/Blog/Footer";
+
+import post1 from "./blog-post.1.md";
+import post2 from "./blog-post.2.md";
+import post3 from "./blog-post.3.md";
 
 const sections = [
   { title: "Technology", url: "#" },
@@ -58,11 +60,9 @@ const featuredPosts = [
   },
 ];
 
-const posts = [
-  "This is a wider card with supporting text below as a natural lead-in to additional content",
-  "This is a wider card with supporting text below as a natural lead-in to additional content",
-  "This is a wider card with supporting text below as a natural lead-in to additional content",
-];
+const posts = [post1, post2, post3].map((key) => {
+  return matter(key, { excerpt: false, excerpt_separator: "-->" });
+});
 
 const sidebar = {
   title: "About",
@@ -88,12 +88,11 @@ const sidebar = {
   ],
 };
 
-const theme = createTheme();
+// const theme = createTheme();
 
 export default function Blog() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <>
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
@@ -118,6 +117,6 @@ export default function Blog() {
         title="Footer"
         description="Something here to give the footer a purpose!"
       />
-    </ThemeProvider>
+    </>
   );
 }

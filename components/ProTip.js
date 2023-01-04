@@ -13,7 +13,10 @@ function LightBulbIcon(props) {
 
 export default function ProTip() {
   return (
-    <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
+    <Typography
+      sx={{ backgroundColor: "white", mt: 3, mb: 3, p: 2 }}
+      color="text.secondary"
+    >
       <LightBulbIcon sx={{ mr: 1, verticalAlign: "middle" }} />
       Pro tip: See more{" "}
       <Link href="https://mui.com/getting-started/templates/">

@@ -7,11 +7,21 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import CardTravelIcon from "@mui/icons-material/CardTravel";
+import AppRegistration from "@mui/icons-material/AppRegistration";
 
-import { Link, ListItemButton, ListItemText, ListItemIcon, ListSubheader } from "@mui/material";
+import {
+  Link,
+  ListItemButton,
+  ListItemText,
+  ListItemIcon,
+  ListSubheader,
+} from "@mui/material";
 
 export const mainListItems = (
   <React.Fragment>
+    <ListSubheader component="div" inset>
+      Pages
+    </ListSubheader>
     <ListItemButton>
       <ListItemIcon>
         <DashboardIcon />
@@ -20,25 +30,31 @@ export const mainListItems = (
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary={<Link href="/chart">Charts</Link>} />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <CardTravelIcon />
+        <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary={<Link href="/card">Cards</Link>}  />
+      <ListItemText primary={<Link href="/card">Cards</Link>} />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary={<Link href="/auth/signin">Users</Link>}  />
+      <ListItemText primary={<Link href="/auth/signin">Users</Link>} />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <BarChartIcon />
+        <AppRegistration />
+      </ListItemIcon>
+      <ListItemText primary={<Link href="/form/form">Forms</Link>} />
+    </ListItemButton>
+    <ListItemButton>
+      <ListItemIcon>
+        <CardTravelIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItemButton>

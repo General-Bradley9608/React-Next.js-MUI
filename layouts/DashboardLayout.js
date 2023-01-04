@@ -1,27 +1,36 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiDrawer from "@mui/material/Drawer";
-import Box from "@mui/material/Box";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import Container from "@mui/material/Container";
 
-import Link from "@mui/material/Link";
+import CssBaseline from "@mui/material/CssBaseline";
+
+/* Components */
+import MuiDrawer from "@mui/material/Drawer";
+import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import {
+  Container,
+  Box,
+  Toolbar,
+  List,
+  Link,
+  Typography,
+  TextField,
+  Divider,
+  IconButton,
+} from "@mui/material";
 
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import SearchIcon from "@mui/icons-material/Search";
+
+/* Components */
 import {
   mainListItems,
   secondaryListItems,
 } from "@components/ListMenu/listItems";
+
+import FloatConfig from "@components/Float/FloatConfig";
+import FloatNotify from "@components/Float/FloatNotify";
 
 function Copyright(props) {
   return (
@@ -89,9 +98,22 @@ const Drawer = styled(MuiDrawer, {
 
 function DashboardContent({ children }) {
   const [open, setOpen] = React.useState(true);
+  const [openNotify, setOpenNotify] = React.useState(false);
+
+  React.useEffect(() => {
+    setOpenNotify(false);
+  }, []);
+
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const itemsNotify = [
+    { id: 1, title: "tiele one", text: "lorem ipasudj odl dola " },
+    { id: 2, title: "tiele two", text: "lorem ipasudj odl dola " },
+    { id: 3, title: "tiele three", text: "lorem ipasudj odl dola " },
+    { id: 4, title: "tiele four", text: "lorem ipasudj odl dola " },
+  ];
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -123,11 +145,25 @@ function DashboardContent({ children }) {
           >
             Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
+          <IconButton color="inherit" onClick={() => {}}>
+            <SearchIcon />
           </IconButton>
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 1, width: "12ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              sx={{ width: 1 }}
+              size="small"
+              placeholder="Search.."
+              color="success"
+            />
+          </Box>
+          <FloatNotify show={openNotify} items={itemsNotify} />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -144,7 +180,7 @@ function DashboardContent({ children }) {
           </IconButton>
         </Toolbar>
         <Divider />
-        <List component="nav">
+        <List component="nav" sx={{ a: { textDecoration: "none" } }}>
           {mainListItems}
           <Divider sx={{ my: 1 }} />
           {secondaryListItems}
@@ -163,6 +199,7 @@ function DashboardContent({ children }) {
         }}
       >
         <Toolbar />
+        <FloatConfig />
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
           {children}
           <Copyright sx={{ pt: 4 }} />

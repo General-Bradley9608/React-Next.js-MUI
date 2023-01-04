@@ -17,9 +17,11 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@next/font": "latest",
+    "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.1.7",
     "next": "latest",
     "prop-types": "latest",
+    "raw-loader": "^4.0.2",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "^2.1.16"
