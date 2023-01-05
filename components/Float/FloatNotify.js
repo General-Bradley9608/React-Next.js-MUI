@@ -37,18 +37,39 @@ export default function FloatNotify({ show, items }) {
           horizontal: "left",
         }}
       >
-        {items &&
-          items.length &&
-          items.map((item) => (
-            <div key={item.id}>
-              <Typography sx={{ p: 0, m: 1 }} variant="subtitle2">
-                {item.title}
-              </Typography>
-              <Typography sx={{ p: 0, m: 1 }} variant="caption">
-                {item.text}
-              </Typography>
-            </div>
-          ))}
+        <Box
+          sx={{
+            width: "320px",
+            height: "320px",
+            overflowX: "hidden",
+            overflowY: "auto",
+          }}
+        >
+          {items &&
+            items.length &&
+            items.map((item) => (
+              <Box
+                key={item.id}
+                sx={{
+                  bgColor: "secondary.main",
+                }}
+              >
+                <Typography
+                  sx={{ p: 0, m: 1, lineHeight: 1.5 }}
+                  variant="subtitle2"
+                >
+                  {item.title}
+                </Typography>
+                <Typography
+                  sx={{ p: 0, m: 1 }}
+                  variant="caption"
+                  component={"p"}
+                >
+                  {item.text}
+                </Typography>
+              </Box>
+            ))}
+        </Box>
       </Popover>
     </>
   );

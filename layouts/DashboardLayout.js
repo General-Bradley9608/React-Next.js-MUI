@@ -1,21 +1,20 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 
-import CssBaseline from "@mui/material/CssBaseline";
-
 /* Components */
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
+// import Input from "@mui/material/Input";
+// import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 import {
   Container,
   Box,
   Toolbar,
   List,
-  Link,
   Typography,
-  TextField,
+  Input,
   Divider,
   IconButton,
 } from "@mui/material";
@@ -28,27 +27,9 @@ import {
   mainListItems,
   secondaryListItems,
 } from "@components/ListMenu/listItems";
-
+import Copyright from "@components/Copyright";
 import FloatConfig from "@components/Float/FloatConfig";
 import FloatNotify from "@components/Float/FloatNotify";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const drawerWidth = 240;
 
@@ -98,7 +79,9 @@ const Drawer = styled(MuiDrawer, {
 
 function DashboardContent({ children }) {
   const [open, setOpen] = React.useState(true);
+  const [searchOpen, setSearchOpen] = React.useState(true);
   const [openNotify, setOpenNotify] = React.useState(false);
+  const inputRef = React.useRef(null);
 
   React.useEffect(() => {
     setOpenNotify(false);
@@ -107,6 +90,10 @@ function DashboardContent({ children }) {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  // const handleClickAway = () => {
+  //   setSearchOpen(false);
+  // };
 
   const itemsNotify = [
     {
@@ -136,7 +123,7 @@ function DashboardContent({ children }) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <AppBar position="absolute" open={open}>
         <Toolbar
           sx={{
@@ -156,32 +143,39 @@ function DashboardContent({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography
-            component="h1"
-            variant="h6"
+            component="h2"
+            variant="subtitle1"
             color="inherit"
             noWrap
             sx={{ flexGrow: 1 }}
           >
             Dashboard
           </Typography>
-          <IconButton color="inherit" onClick={() => {}}>
-            <SearchIcon />
+          <IconButton
+            color="inherit"
+            onClick={() => setSearchOpen(!searchOpen)}
+          >
+            <SearchIcon fontSize="small" />
           </IconButton>
+          {/* <ClickAwayListener onClickAway={() => setSearchOpen(!searchOpen)}> */}
           <Box
+            onBlur={() => setSearchOpen(!searchOpen)}
+            hidden={searchOpen}
             component="form"
             sx={{
-              "& .MuiTextField-root": { m: 1, width: "12ch" },
+              "& .MuiTextField-root": { m: 2, width: "12ch" },
             }}
             noValidate
             autoComplete="off"
           >
-            <TextField
-              sx={{ width: 1 }}
-              size="small"
+            <Input
               placeholder="Search.."
-              color="success"
+              color="light"
+              ref={inputRef}
+              autoFocus
             />
           </Box>
+          {/* </ClickAwayListener> */}
           <FloatNotify show={openNotify} items={itemsNotify} />
         </Toolbar>
       </AppBar>
@@ -219,9 +213,9 @@ function DashboardContent({ children }) {
       >
         <Toolbar />
         <FloatConfig />
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
           {children}
-          <Copyright sx={{ pt: 4 }} />
+          <Copyright />
         </Container>
       </Box>
     </Box>

@@ -20,7 +20,12 @@ const options = {
     },
     h2: {
       component: Typography,
-      props: { gutterBottom: true, variant: "h7", component: "h4" },
+      props: {
+        gutterBottom: true,
+        variant: "h7",
+        component: "h4",
+        color: "grey.600",
+      },
     },
     h3: {
       component: Typography,

@@ -41,9 +41,15 @@ function Main(props) {
             {post.content}
             {/* {post.excerpt} */}
           </Markdown>
-          <TimerIcon sx={{ verticalAlign: "middle", mr: 0.5 }} />
+          <TimerIcon
+            fontSize="small"
+            sx={{ verticalAlign: "middle", mr: 0.5 }}
+          />
           {post.data.date} -{" "}
-          <UserIcon sx={{ verticalAlign: "middle", mr: 0.5 }} />
+          <UserIcon
+            fontSize="small"
+            sx={{ verticalAlign: "middle", mr: 0.5 }}
+          />
           {post.data.author}
         </Box>
       ))}
