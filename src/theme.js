@@ -62,17 +62,17 @@ const theme = createTheme({
     },
     h4: {
       // fontFamily: roboto.style.fontFamily,
-      fontWeight: "600",
+      fontWeight: "400",
       lineHeight: 1.5,
     },
     h5: {
       // fontFamily: roboto.style.fontFamily,
-      fontWeight: "600",
+      fontWeight: "400",
       lineHeight: 1.5,
     },
     h6: {
       // fontFamily: roboto.style.fontFamily,
-      fontWeight: "600",
+      fontWeight: "400",
       lineHeight: 1.5,
     },
   },
@@ -96,7 +96,15 @@ const theme = createTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          width: "36px",
+          minWidth: "42px",
+        },
+      },
+    },
+    MuiListSubheader: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          fontWeight: "400",
         },
       },
     },

@@ -13,9 +13,9 @@ import {
 /* routes */
 import { routeDashboard } from "@config/routes";
 
-export const mainListItems = (
+export const mainListItems = (compact = true) => (
   <React.Fragment>
-    <ListSubheader component="div" inset color="primary">
+    <ListSubheader component="div" hidden={!compact} color="primary">
       Pages
     </ListSubheader>
     {Object.values(routeDashboard).map((route) => {
@@ -29,10 +29,10 @@ export const mainListItems = (
   </React.Fragment>
 );
 
-export const secondaryListItems = (
+export const secondaryListItems = (compact = false) => (
   <React.Fragment>
-    <ListSubheader component="div" inset>
-      Saved reports
+    <ListSubheader component="div" hidden={!compact} color="primary">
+      Ui Elements
     </ListSubheader>
     <ListItemButton dense>
       <ListItemIcon>

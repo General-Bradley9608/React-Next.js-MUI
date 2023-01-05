@@ -18,6 +18,7 @@ import {
   Input,
   Divider,
   IconButton,
+  Link,
 } from "@mui/material";
 
 /* Icons */
@@ -212,9 +213,24 @@ function DashboardContent({ children }) {
             px: [1],
           }}
         >
-          <Typography component="h1" variant="h6" color="primary.main">
-            {constant.siteName}
-          </Typography>
+          <Link
+            href="/"
+            sx={{
+              transition: "all .5s ease",
+              verticalAlign: "middle",
+              ml: 1.5,
+              ":hover": {
+                filter: "brightness(1.35);",
+              },
+            }}
+          >
+            <img
+              src="/logo.svg"
+              alt={constant.siteName}
+              height={24}
+              style={{ verticalAlign: "middle" }}
+            />
+          </Link>
           <IconButton onClick={toggleDrawer}>
             <ChevronLeftIcon />
           </IconButton>
@@ -224,12 +240,11 @@ function DashboardContent({ children }) {
           component="nav"
           sx={{
             a: { textDecoration: "none" },
-            ...(!open && { width: "auto" }),
           }}
         >
-          {mainListItems}
+          {mainListItems(open)}
           <Divider sx={{ my: 1 }} />
-          {secondaryListItems}
+          {secondaryListItems(open)}
         </List>
       </Drawer>
       <Box

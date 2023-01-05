@@ -33,11 +33,11 @@ export default function ReChart() {
   return (
     <React.Fragment>
       <Title>Today</Title>
-      <ResponsiveContainer>
+      <ResponsiveContainer width={420} height={160}>
         <LineChart
           data={data}
           margin={{
-            top: 16,
+            top: 20,
             right: 16,
             bottom: 0,
             left: 24,

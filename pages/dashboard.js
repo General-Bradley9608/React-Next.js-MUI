@@ -26,7 +26,7 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       <Toolbar>
-        <Typography component="h6" variant="subtitle1" color="secondary.main">
+        <Typography component="h6" variant="subtitle2" color="secondary.main">
           <IconButton
             edge="start"
             color="inherit"
@@ -39,30 +39,41 @@ export default function Dashboard() {
         </Typography>
       </Toolbar>
       <Grid container spacing={2}>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
+        <Grid item xs={12} sm={12} lg={4}>
           <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
-              height: 240,
+              minHeight: 240,
             }}
           >
             <Chart />
           </Paper>
         </Grid>
-        {/* Recent Deposits */}
-        <Grid item xs={12} md={4} lg={3}>
+        <Grid item xs={12} sm={12} lg={8}>
           <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
-              height: 240,
+              minHeight: 240,
             }}
           >
-            <Deposits />
+            <Grid container spacing={2}>
+              <Grid item lg={3}>
+                <Deposits />
+              </Grid>
+              <Grid item lg={3}>
+                <Deposits />
+              </Grid>
+              <Grid item lg={3}>
+                <Deposits />
+              </Grid>
+              <Grid item lg={3}>
+                <Deposits />
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
         {/* Recent Orders */}
