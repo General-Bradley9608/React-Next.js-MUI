@@ -1,10 +1,20 @@
 import * as React from "react";
 
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+/* MUI */
+import {
+  Box,
+  Paper,
+  Grid,
+  Typography,
+  Toolbar,
+  IconButton,
+} from "@mui/material";
+
+import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
+
 /* Components */
 import Chart from "@components/Chart/ReChart";
 import Deposits from "@components/Deposits";
@@ -15,7 +25,20 @@ import shadows from "@mui/material/styles/shadows";
 export default function Dashboard() {
   return (
     <DashboardLayout>
-      <Grid container spacing={3}>
+      <Toolbar>
+        <Typography component="h6" variant="subtitle1" color="secondary.main">
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="Hi Administrator"
+            size="small"
+          >
+            <CommnentIcon color="secondary" />
+          </IconButton>
+          Hi, Administrator
+        </Typography>
+      </Toolbar>
+      <Grid container spacing={2}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper

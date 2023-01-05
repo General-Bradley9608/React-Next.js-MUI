@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
+
 // import Input from "@mui/material/Input";
 // import ClickAwayListener from "@mui/material/ClickAwayListener";
 
@@ -19,6 +20,7 @@ import {
   IconButton,
 } from "@mui/material";
 
+/* Icons */
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -28,8 +30,11 @@ import {
   secondaryListItems,
 } from "@components/ListMenu/listItems";
 import Copyright from "@components/Copyright";
-import FloatConfig from "@components/Float/FloatConfig";
-import FloatNotify from "@components/Float/FloatNotify";
+import FloatConfig from "@components/Float/Config";
+import FloatNotify from "@components/Float/Notify";
+
+/* Config */
+import { constant } from "@config/constants";
 
 const drawerWidth = 240;
 
@@ -98,23 +103,27 @@ function DashboardContent({ children }) {
   const itemsNotify = [
     {
       id: 1,
+      author: "Mr. Dimsum",
       title: "Completely synergize resource taxing relationships",
       text: "Interactively coordinate proactive e-commerce via process-centric thinking. Completely pursue scalable customer service through sustainable potentialities. Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or sources.",
     },
     {
       id: 2,
+      author: "Ms Diane Flock",
       title:
         "Objectively innovate empowered manufactured products whereas parallel",
       text: "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures.",
     },
     {
       id: 3,
+      author: "Lamelo Ball",
       title:
         "Proactively envisioned multimedia based expertise and cross-media growth strategies",
       text: "Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.",
     },
     {
       id: 4,
+      author: "Andre Vicks",
       title:
         "Phosfluorescently engage worldwide methodologies with web-enabled technology",
       text: "Completely synergize scalable e-commerce rather than high standards in e-services. Assertively iterate resource maximizing products after leading-edge intellectual capital.",
@@ -179,21 +188,45 @@ function DashboardContent({ children }) {
           <FloatNotify show={openNotify} items={itemsNotify} />
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer
+        variant="permanent"
+        open={open}
+        sx={{
+          boxShadow: "0 .3rem .8rem rgba(0, 0, 0, .12)",
+          transition: "all .2s ease-out",
+          zIndex: 11,
+          border: 0,
+          ...(!open && {
+            ".MuiDrawer-paper": {
+              width: "58px",
+              position: "relative",
+            },
+          }),
+        }}
+      >
         <Toolbar
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             px: [1],
           }}
         >
+          <Typography component="h1" variant="h6" color="primary.main">
+            {constant.siteName}
+          </Typography>
           <IconButton onClick={toggleDrawer}>
             <ChevronLeftIcon />
           </IconButton>
         </Toolbar>
         <Divider />
-        <List component="nav" sx={{ a: { textDecoration: "none" } }}>
+        <List
+          component="nav"
+          sx={{
+            a: { textDecoration: "none" },
+            ...(!open && { width: "auto" }),
+          }}
+        >
           {mainListItems}
           <Divider sx={{ my: 1 }} />
           {secondaryListItems}
@@ -211,9 +244,8 @@ function DashboardContent({ children }) {
           overflow: "auto",
         }}
       >
-        <Toolbar />
-        <FloatConfig />
-        <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="xl" sx={{ mt: 2, mb: 4, pt: 6 }}>
+          <FloatConfig />
           {children}
           <Copyright />
         </Container>

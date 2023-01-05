@@ -11,7 +11,7 @@ import {
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
 /* Components */
-import CardDefault from "@components/Card/MediaCard";
+import CardMedias from "@components/Card/Medias";
 
 export default function Page() {
   const post = {
@@ -30,11 +30,11 @@ export default function Page() {
               flexDirection: "row",
             }}
           >
-            <CardDefault />
-            <CardDefault />
-            <CardDefault />
-            <CardDefault />
-            <CardDefault />
+            <CardMedias />
+            <CardMedias />
+            <CardMedias />
+            <CardMedias />
+            <CardMedias />
           </Paper>
         </Grid>
       </Grid>

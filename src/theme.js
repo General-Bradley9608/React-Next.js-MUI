@@ -76,6 +76,31 @@ const theme = createTheme({
       lineHeight: 1.5,
     },
   },
+  components: {
+    // Name of the component
+    MuiButtonBase: {
+      defaultProps: {
+        // The props to change the default for.
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    // MuiListItemButton: {
+    //   styleOverrides: {
+    //     // Name of the slot
+    //     root: {
+    //       width: "36px",
+    //     },
+    //   },
+    // },
+    MuiListItemIcon: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          width: "36px",
+        },
+      },
+    },
+  },
 });
 
 export default theme;
