@@ -36,6 +36,7 @@ import {
 import Copyright from "@components/Copyright";
 import FloatConfig from "@components/Float/Config";
 import FloatNotify from "@components/Float/Notify";
+import ScrollToTop from "@components/Scroll/ToTop";
 
 /* Config */
 import { constant } from "@config/constants";
@@ -151,7 +152,7 @@ function DashboardContent({ children }) {
   return (
     <Box sx={{ display: "flex" }}>
       {/* <CssBaseline /> */}
-      <AppBar position="absolute" open={open}>
+      <AppBar position="absolute" open={open} color="light">
         <Toolbar
           sx={{
             pr: "24px", // keep right padding when drawer closed
@@ -306,6 +307,7 @@ function DashboardContent({ children }) {
         </List>
       </Drawer>
       <Box
+        id="back-to-top-anchor"
         component="main"
         sx={{
           backgroundColor: (theme) =>
@@ -321,6 +323,7 @@ function DashboardContent({ children }) {
           <FloatConfig />
           {children}
           <Copyright />
+          <ScrollToTop />
         </Container>
       </Box>
     </Box>

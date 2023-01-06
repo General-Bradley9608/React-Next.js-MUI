@@ -76,7 +76,7 @@ export default function Index() {
             <img
               src="/logo.svg"
               alt={constant.siteName}
-              height={64}
+              height={34}
               style={{ verticalAlign: "middle" }}
             />
           </Link>
@@ -174,6 +174,9 @@ export default function Index() {
         <Box marginY={4}>
           <Typography color="primary" variant="h4" sx={styledH}>
             Documentation
+            <Typography color="secondary" component="p" variant="subtitle1">
+              See the how to from our documentations
+            </Typography>
           </Typography>
           <Box>
             {Object.values(routeDocumentation).map((route) => {
