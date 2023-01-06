@@ -8,6 +8,9 @@ import ProTip from "@components/ProTip";
 import Link from "@components/Link";
 import Copyright from "@components/Copyright";
 
+/* Config */
+import { constant } from "@config/constants";
+
 /* Routes */
 import { routePage, routeDocumentation } from "@config/routes";
 
@@ -59,13 +62,32 @@ export default function Index() {
     <Box maxWidth="xxl" sx={styled}>
       <Container maxWidth="lg">
         <Box sx={{ marginBottom: "2rem" }}>
+          <Link
+            href="/"
+            sx={{
+              transition: "all .5s ease",
+              verticalAlign: "middle",
+              ml: 0,
+              ":hover": {
+                filter: "brightness(1.35);",
+              },
+            }}
+          >
+            <img
+              src="/logo.svg"
+              alt={constant.siteName}
+              height={64}
+              style={{ verticalAlign: "middle" }}
+            />
+          </Link>
           <Typography
             variant="h1"
             md="h5"
-            fontSize={{ xs: "2rem", sm: "3rem" }}
+            mt={3}
+            fontSize={{ xs: "1.75rem", sm: "2rem" }}
             color="secondary.dark"
           >
-            MUI Administrator Theme
+            Material UI Financial Dashboard Administrator Theme
           </Typography>
           <div>A premium Theme for your Next.js Website Application</div>
         </Box>

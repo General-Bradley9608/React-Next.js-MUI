@@ -29,7 +29,7 @@ const theme = createTheme({
     secondary: {
       // main: "#f2f2f2",
       main: "#929292",
-      dark: "rgb(167, 167, 167)",
+      dark: "#555555",
       light: "#f2f2f2",
     },
     success: { main: "#198754" },
@@ -62,12 +62,12 @@ const theme = createTheme({
     },
     h4: {
       // fontFamily: roboto.style.fontFamily,
-      fontWeight: "400",
+      fontWeight: "600",
       lineHeight: 1.5,
     },
     h5: {
       // fontFamily: roboto.style.fontFamily,
-      fontWeight: "400",
+      fontWeight: "600",
       lineHeight: 1.5,
     },
     h6: {
@@ -79,6 +79,12 @@ const theme = createTheme({
   components: {
     // Name of the component
     MuiButtonBase: {
+      defaultProps: {
+        // The props to change the default for.
+        disableRipple: true, // No more ripple, on the whole application 💣!
+      },
+    },
+    MuiButtonGroup: {
       defaultProps: {
         // The props to change the default for.
         disableRipple: true, // No more ripple, on the whole application 💣!

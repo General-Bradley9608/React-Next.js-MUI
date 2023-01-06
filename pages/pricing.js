@@ -15,23 +15,11 @@ import Link from "@mui/material/Link";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import Container from "@mui/material/Container";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+/* Config */
+import { constant } from "@config/constants";
+
+/* Components */
+import Copyright from "@components/Copyright";
 
 const tiers = [
   {
@@ -112,13 +100,32 @@ function PricingContent() {
       <CssBaseline />
       <AppBar
         position="static"
-        color="default"
+        color="primary"
         elevation={0}
-        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+        sx={{
+          borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
+        }}
       >
         <Toolbar sx={{ flexWrap: "wrap" }}>
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            Company name
+            <Link
+              href="/"
+              sx={{
+                transition: "all .5s ease",
+                verticalAlign: "middle",
+                ml: 1.5,
+                ":hover": {
+                  filter: "brightness(1.35);",
+                },
+              }}
+            >
+              <img
+                src="/logo-white.svg"
+                alt={constant.siteName}
+                height={24}
+                style={{ verticalAlign: "middle" }}
+              />
+            </Link>
           </Typography>
           <nav>
             <Link

@@ -5,7 +5,8 @@ import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
 // import Input from "@mui/material/Input";
 // import ClickAwayListener from "@mui/material/ClickAwayListener";
 
@@ -24,6 +25,8 @@ import {
 /* Icons */
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SearchIcon from "@mui/icons-material/Search";
+import HomeIcon from "@mui/icons-material/HomeOutlined";
+import AccountIcon from "@mui/icons-material/AccountCircle";
 
 /* Components */
 import {
@@ -97,6 +100,20 @@ function DashboardContent({ children }) {
     setOpen(!open);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenuProfile = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   // const handleClickAway = () => {
   //   setSearchOpen(false);
   // };
@@ -150,7 +167,17 @@ function DashboardContent({ children }) {
               ...(open && { display: "none" }),
             }}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href="/"
+            sx={{
+              marginLeft: 0,
+              marginRight: "5px",
+            }}
+          >
+            <HomeIcon fontSize="small" />
           </IconButton>
           <Typography
             component="h2"
@@ -187,6 +214,37 @@ function DashboardContent({ children }) {
           </Box>
           {/* </ClickAwayListener> */}
           <FloatNotify show={openNotify} items={itemsNotify} />
+          <IconButton
+            color="inherit"
+            aria-label="profile of current user"
+            aria-controls="menu-appbar-profile"
+            aria-haspopup="true"
+            onClick={handleMenuProfile}
+          >
+            <AccountIcon fontSize="small" />
+          </IconButton>
+          <Menu
+            id="menu-appbar-profile"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem dense onClick={handleClose} href="/profile">
+              <AccountIcon fontSize="small" /> Profile
+            </MenuItem>
+            <MenuItem dense onClick={handleClose}>
+              <AccountIcon fontSize="small" /> My account
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Drawer
