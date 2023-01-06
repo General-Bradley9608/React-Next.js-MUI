@@ -4,6 +4,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
 export default function MediasCard() {
@@ -36,7 +38,7 @@ export default function MediasCard() {
             position: "absolute",
             left: 0,
             right: 0,
-            zIndex: 1,
+            zIndex: 0,
             width: "100%",
             height: "100%",
             top: 0,
@@ -47,9 +49,21 @@ export default function MediasCard() {
           },
         }}
       >
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
+        <Box
+          component="div"
+          sx={{ position: "absolute", bottom: ".75rem", zIndex: 1 }}
+        >
+          <Typography variant="h5">Lizard</Typography>
+          <Typography component="span" variant="caption">
+            12 Active
+          </Typography>
+          <Box component="span" mx={1}>
+            |
+          </Box>
+          <Typography component="span" variant="caption">
+            15 Pending
+          </Typography>
+        </Box>
       </CardMedia>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
