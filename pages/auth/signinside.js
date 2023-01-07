@@ -91,6 +91,7 @@ export default function SignInSide() {
               sx={{ mt: 1 }}
             >
               <TextField
+                size="small"
                 margin="normal"
                 required
                 fullWidth
@@ -101,6 +102,7 @@ export default function SignInSide() {
                 autoFocus
               />
               <TextField
+                size="small"
                 margin="normal"
                 required
                 fullWidth

@@ -16,18 +16,11 @@ import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Review from "./Review";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+/* Components */
+import Copyright from "@components/Copyright";
+
+/* Config */
+import { constant } from "@config/constants";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
@@ -71,11 +64,48 @@ export default function Checkout() {
       >
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            <Link
+              href="/"
+              sx={{
+                transition: "all .5s ease",
+                verticalAlign: "middle",
+                ml: 0,
+                ":hover": {
+                  filter: "brightness(1.35);",
+                },
+              }}
+            >
+              <img
+                src="/logo.svg"
+                alt={constant.siteName}
+                height={24}
+                style={{ verticalAlign: "middle" }}
+              />
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+      <Container component="main" maxWidth="sm" sx={{ my: 4 }}>
+        <Link
+          href="/"
+          sx={{
+            transition: "all .5s ease",
+            verticalAlign: "middle",
+            mx: "auto",
+            textAlign: "center",
+            ":hover": {
+              filter: "brightness(1.35);",
+            },
+          }}
+        >
+          <img
+            src="/logo.svg"
+            alt={constant.siteName}
+            height={64}
+            style={{ verticalAlign: "middle", marginRight: "1rem" }}
+          />
+          <span>Checkout Payment</span>
+        </Link>
         <Paper
           variant="outlined"
           sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}

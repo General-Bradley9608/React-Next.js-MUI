@@ -16,18 +16,11 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme } from "@mui/material/styles";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+/* Components */
+import Copyright from "@components/Copyright";
+
+/* Config */
+import { constant } from "@config/constants";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -40,9 +33,26 @@ export default function Album() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <CameraIcon sx={{ mr: 2 }} />
+          {/* <CameraIcon sx={{ mr: 2 }} /> */}
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            <Link
+              href="/"
+              sx={{
+                transition: "all .5s ease",
+                verticalAlign: "middle",
+                ml: 0,
+                ":hover": {
+                  filter: "brightness(1.35);",
+                },
+              }}
+            >
+              <img
+                src="/logo-white.svg"
+                alt={constant.siteName}
+                height={24}
+                style={{ verticalAlign: "middle" }}
+              />
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -63,7 +73,24 @@ export default function Album() {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              <Link
+                href="/"
+                sx={{
+                  transition: "all .5s ease",
+                  verticalAlign: "middle",
+                  ml: 0,
+                  ":hover": {
+                    filter: "brightness(1.35);",
+                  },
+                }}
+              >
+                <img
+                  src="/logo.svg"
+                  alt={constant.siteName}
+                  height={64}
+                  style={{ verticalAlign: "middle" }}
+                />
+              </Link>
             </Typography>
             <Typography
               variant="h5"

@@ -59,6 +59,13 @@ const routePage = {
     url: "/auth/signup",
     to: "/auth/signup",
   },
+  signinside: {
+    name: "Sign In Side",
+    text: "User Sign In Side Interface",
+    href: "/auth/signinside",
+    url: "/auth/signinside",
+    to: "/auth/signinside",
+  },
   blog: {
     name: "Blog",
     text: "Blog Interface",
@@ -66,12 +73,26 @@ const routePage = {
     url: "/blog",
     to: "/blog",
   },
+  about: {
+    name: "About",
+    text: "About Page Interface",
+    href: "/about",
+    url: "/about",
+    to: "/about",
+  },
   album: {
     name: "Albums",
     text: "Albums Interface",
     href: "/album",
     url: "/album",
     to: "/album",
+  },
+  gallery: {
+    name: "Gallery",
+    text: "Gallery Interface",
+    href: "/gallery",
+    url: "/gallery",
+    to: "/gallery",
   },
   chart: {
     name: "Chart",
