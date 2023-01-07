@@ -13,23 +13,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+/* Config */
+import { constant } from "@config/constants";
+import Copyright from "@components/Copyright";
 
 const theme = createTheme();
 
@@ -94,6 +80,25 @@ export default function SignUp() {
             alignItems: "center",
           }}
         >
+          <Link
+            href="/"
+            sx={{
+              transition: "all .5s ease",
+              verticalAlign: "middle",
+              mx: "auto",
+              mb: 2,
+              ":hover": {
+                filter: "brightness(1.35);",
+              },
+            }}
+          >
+            <img
+              src="/logo.svg"
+              alt={constant.siteName}
+              height={24}
+              style={{ verticalAlign: "middle" }}
+            />
+          </Link>
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -109,6 +114,7 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  size="small"
                   autoComplete="given-name"
                   name="firstName"
                   required
@@ -120,6 +126,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  size="small"
                   required
                   fullWidth
                   id="lastName"
@@ -130,6 +137,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  size="small"
                   required
                   fullWidth
                   id="email"
@@ -140,6 +148,7 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  size="small"
                   required
                   fullWidth
                   name="password"
@@ -152,9 +161,18 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+                    <Checkbox
+                      size="small"
+                      value="allowExtraEmails"
+                      color="primary"
+                    />
                   }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label={
+                    <Typography variant="body2" component="p">
+                      I want to receive inspiration, marketing promotions and
+                      updates via email.
+                    </Typography>
+                  }
                 />
               </Grid>
             </Grid>
@@ -168,7 +186,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/auth/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

@@ -228,7 +228,7 @@ function DashboardContent({ children }) {
             id="menu-appbar-profile"
             anchorEl={anchorEl}
             anchorOrigin={{
-              vertical: "top",
+              vertical: "bottom",
               horizontal: "right",
             }}
             keepMounted
@@ -239,8 +239,13 @@ function DashboardContent({ children }) {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem dense onClick={handleClose} href="/profile">
-              <AccountIcon fontSize="small" /> Profile
+            <MenuItem
+              dense
+              //onClick={handleClose}
+            >
+              <Link href="/profile">
+                <AccountIcon fontSize="small" /> Profile
+              </Link>
             </MenuItem>
             <MenuItem dense onClick={handleClose}>
               <AccountIcon fontSize="small" /> My account

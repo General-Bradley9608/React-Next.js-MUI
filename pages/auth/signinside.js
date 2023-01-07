@@ -13,23 +13,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import Copyright from "@components/Copyright";
 
 const theme = createTheme();
 
@@ -74,6 +58,25 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
+            <Link
+              href="/"
+              sx={{
+                transition: "all .5s ease",
+                verticalAlign: "middle",
+                mx: "auto",
+                mb: 2,
+                ":hover": {
+                  filter: "brightness(1.35);",
+                },
+              }}
+            >
+              <img
+                src="/logo.svg"
+                alt={constant.siteName}
+                height={24}
+                style={{ verticalAlign: "middle" }}
+              />
+            </Link>
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
