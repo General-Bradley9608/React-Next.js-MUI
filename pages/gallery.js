@@ -12,11 +12,14 @@ import {
   Avatar,
 } from "@mui/material";
 
+import { deepOrange, green } from "@mui/material/colors";
+
+import AddIcon from "@mui/icons-material/AddCircleOutline";
+import VerifyIcon from "@mui/icons-material/VerifiedOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import FolderIcon from "@mui/icons-material/CheckOutlined";
 
 /* Components */
-import ProTip from "@components/ProTip";
 import Link from "@components/Link";
 import Copyright from "@components/Copyright";
 
@@ -253,7 +256,7 @@ export default function Index() {
     <Box sx={styled}>
       <Container maxWidth="lg">
         <Box sx={{ marginBottom: "2rem" }}>
-          <Box mx="auto" textAlign="center" py={5}>
+          <Box mx="auto" textAlign="center" py={2}>
             <Link
               href="/"
               sx={{
@@ -316,6 +319,10 @@ export default function Index() {
                 justifyContent: "center",
                 flexWrap: "wrap",
                 mb: 2,
+                a: {
+                  textDecoration: "none",
+                  ":hover": { textDecoration: "underline" },
+                },
               }}
             >
               <Link href="/gallery" mr={3} variant="h6">
@@ -390,7 +397,7 @@ export default function Index() {
                           sx={{
                             transition: ".25s ease",
                             position: "absolute",
-                            backgroundColor: "rgba(0,0,0,0.5)",
+                            backgroundColor: "rgba(0,0,0,0.75)",
                             left: 0,
                             right: 0,
                             bottom: 0,
@@ -405,16 +412,31 @@ export default function Index() {
                           }}
                         >
                           <ButtonGroup>
-                            <Button variant="contained">Visit</Button>
-                            <Button variant="contained">Wishlist</Button>
+                            <Button
+                              variant="contained"
+                              startIcon={<VerifyIcon />}
+                            >
+                              Visit
+                            </Button>
+                            <Button variant="contained" startIcon={<AddIcon />}>
+                              Wishlist
+                            </Button>
                           </ButtonGroup>
                         </Box>
                       </Box>
                       <Box px={1} py={2}>
-                        <Typography variant="subtitle1" fontWeight="600">
+                        <Typography
+                          variant="subtitle1"
+                          fontWeight="600"
+                          color={deepOrange[500]}
+                        >
                           {item.title}
                         </Typography>
-                        <Typography variant="subtitle2" component="p">
+                        <Typography
+                          variant="subtitle2"
+                          component="p"
+                          color="secondary.main"
+                        >
                           {item.description}
                         </Typography>
                         <Grid
@@ -423,10 +445,17 @@ export default function Index() {
                           direction="row"
                           justifyContent="space-between"
                           alignItems="center"
-                          marginY={2}
+                          marginY={1}
                         >
                           <Grid item display="flex" alignItems="center">
-                            <Avatar sx={{ width: 22, height: 21 }}>
+                            <Avatar
+                              variant="square"
+                              sx={{
+                                width: 18,
+                                height: 18,
+                                bgcolor: deepOrange[500],
+                              }}
+                            >
                               <PersonIcon fontSize="small" />
                             </Avatar>
                             <Typography
@@ -439,7 +468,14 @@ export default function Index() {
                             </Typography>
                           </Grid>
                           <Grid item display="flex" alignItems="center">
-                            <Avatar sx={{ width: 22, height: 22 }}>
+                            <Avatar
+                              variant="square"
+                              sx={{
+                                width: 18,
+                                height: 18,
+                                bgcolor: green[500],
+                              }}
+                            >
                               <FolderIcon fontSize="small" />
                             </Avatar>
                             <Typography
@@ -458,6 +494,11 @@ export default function Index() {
                 );
               })}
             </Grid>
+            <Box textAlign="center" mt={4} mb={8}>
+              <Button variant="contained" marginX="auto">
+                More Gallery
+              </Button>
+            </Box>
           </Box>
         </Container>
         <Copyright />
