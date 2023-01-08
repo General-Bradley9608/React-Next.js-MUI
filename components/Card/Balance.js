@@ -9,6 +9,7 @@ import {
   Menu,
   MenuItem,
   Link,
+  Popper,
 } from "@mui/material";
 
 export default function BalanceCard() {
@@ -30,25 +31,34 @@ export default function BalanceCard() {
         <Stack
           justifyContent="space-between"
           alignItems="stretch"
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 1, sm: 2, md: 1 }}
+          direction={{
+            xs: "column",
+            sm: "row",
+          }}
+          spacing={{
+            xs: 1,
+            sm: 2,
+            md: 1,
+          }}
         >
           <Grid
             container
             alignItems="top"
+            elevation={0}
             sx={{
               border: "2px solid #f2f2f2",
               p: 2,
               borderRadius: "12px",
               color: "white",
+              transition: ".5s ease",
               boxShadow:
-                "0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%) !important;",
+                "0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%)",
               backgroundColor: "danger.main",
               backgroundImage:
-                "linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0)) !important;",
+                "linear-gradient(180deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0))",
               ":hover": {
                 boxShadow:
-                  "0 2px 12px 0 rgb(218 218 253 / 75%), 0 2px 12px 0 rgb(206 206 238 / 64%) !important;",
+                  "0 2px 12px 0 rgb(218 218 253 / 75%), 0 2px 12px 0 rgb(206 206 238 / 64%)",
               },
             }}
           >
@@ -64,23 +74,33 @@ export default function BalanceCard() {
               <Typography variant="h5" component="h5">
                 $ 1200000
               </Typography>
-              <Grid container>
+              <Grid
+                container
+                sx={{
+                  ".mui-style-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper":
+                    {
+                      boxShadow: "0 !important;",
+                    },
+                }}
+              >
                 <Grid item lg={10}>
                   <Typography>9129 **** **** 3429</Typography>
                 </Grid>
                 <Grid item lg={2} textAlign="right">
                   <IconButton
+                    id="menu-trax1"
                     size="small"
-                    aria-label="user transaction action"
-                    aria-controls="menu-trax"
+                    aria-label="user transaction actions"
+                    aria-controls="popmenu-trax1"
                     aria-haspopup="true"
                     onClick={handleTraxMenu}
+                    aria-expanded={anchorEl ? "true" : undefined}
                   >
                     <MoreIcon color="light" fontSize="medium" />
                   </IconButton>
                   <Menu
-                    id="menu-trax"
                     keepMounted
+                    id="popmenu-trax1"
                     anchorEl={anchorEl}
                     anchorOrigin={{
                       vertical: "bottom",
@@ -95,6 +115,9 @@ export default function BalanceCard() {
                     }}
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
+                    MenuListProps={{
+                      "aria-labelledby": "menu-trax1",
+                    }}
                   >
                     <MenuItem dense>
                       <Link href="#transfer">Transfer</Link>

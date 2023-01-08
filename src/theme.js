@@ -98,6 +98,22 @@ const theme = createTheme({
     //     },
     //   },
     // },
+    // MuiPaper: {
+    //   defaultProps: {
+    //     elevation: 0,
+    //   },
+    //   styleOverrides: {
+    //     root: {
+    //       elevation: 1,
+    //     },
+    //   },
+    // },
+    // MuiPopover: {
+    //   defaultProps: {
+    //     elevation: 1,
+
+    //   },
+    // },
     MuiListItemIcon: {
       styleOverrides: {
         // Name of the slot

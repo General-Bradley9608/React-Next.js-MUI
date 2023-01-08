@@ -10,12 +10,21 @@ module.exports = {
     });
     return config;
   },
+  transpilePackages: ["@mui/system", "@mui/material", "@mui/icons-material"],
   modularizeImports: {
-    "@mui/icons-material": {
-      transform: "@mui/icons-material/{{member}}",
+    "@mui/material/?(((\\w*)?/?)*)": {
+      transform: "@mui/material/{{ matches.[1] }}/{{member}}",
     },
-    "@mui/material": {
-      transform: "@mui/material/{{member}}",
+    "@mui/icons-material/?(((\\w*)?/?)*)": {
+      transform: "@mui/icons-material/{{ matches.[1] }}/{{member}}",
     },
   },
+  // modularizeImports: {
+  //   "@mui/icons-material": {
+  //     transform: "@mui/icons-material/{{member}}",
+  //   },
+  //   "@mui/material": {
+  //     transform: "@mui/material/{{member}}",
+  //   },
+  // },
 };
