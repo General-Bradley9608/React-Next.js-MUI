@@ -27,6 +27,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import AccountIcon from "@mui/icons-material/AccountCircle";
+import SettingIcon from "@mui/icons-material/Settings";
 
 /* Components */
 import {
@@ -226,15 +227,19 @@ function DashboardContent({ children }) {
           </IconButton>
           <Menu
             id="menu-appbar-profile"
+            keepMounted
             anchorEl={anchorEl}
             anchorOrigin={{
               vertical: "bottom",
               horizontal: "right",
             }}
-            keepMounted
             transformOrigin={{
               vertical: "top",
               horizontal: "right",
+            }}
+            sx={{
+              a: { textDecoration: "none" },
+              svg: { fontSize: "large", verticalAlign: "middle", mr: 0.5 },
             }}
             open={Boolean(anchorEl)}
             onClose={handleClose}
@@ -244,11 +249,13 @@ function DashboardContent({ children }) {
               //onClick={handleClose}
             >
               <Link href="/profile">
-                <AccountIcon fontSize="small" /> Profile
+                <AccountIcon /> Profile
               </Link>
             </MenuItem>
             <MenuItem dense onClick={handleClose}>
-              <AccountIcon fontSize="small" /> My account
+              <Link href="/setting">
+                <SettingIcon /> Settings
+              </Link>
             </MenuItem>
           </Menu>
         </Toolbar>
@@ -275,19 +282,17 @@ function DashboardContent({ children }) {
             alignItems: "center",
             justifyContent: "space-between",
             px: [1],
-          }}
-        >
-          <Link
-            href="/"
-            sx={{
+            a: {
               transition: "all .5s ease",
               verticalAlign: "middle",
               ml: 1.5,
               ":hover": {
                 filter: "brightness(1.35);",
               },
-            }}
-          >
+            },
+          }}
+        >
+          <Link href="/">
             <img
               src="/logo.svg"
               alt={constant.siteName}

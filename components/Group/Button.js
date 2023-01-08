@@ -16,7 +16,8 @@ const options = [
   "Rebase and merge",
 ];
 
-export default function GroupButton() {
+export default function GroupButton(props) {
+  const { title, children, icon } = props;
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
