@@ -34,7 +34,7 @@ import shadows from "@mui/material/styles/shadows";
 export default function Dashboard() {
   return (
     <DashboardLayout>
-      <Toolbar dense disableGutters component="nav">
+      <Toolbar disableGutters component="nav">
         <Link
           href="/profile"
           variant="subtitle2"
