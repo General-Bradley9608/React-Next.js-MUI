@@ -4,6 +4,7 @@ import BalanceIcon from "@mui/icons-material/BalanceOutlined";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import OutputIcon from "@mui/icons-material/OutputOutlined";
 import SummarizeIcon from "@mui/icons-material/SummarizeOutlined";
+import ReportIcon from "@mui/icons-material/ReportOutlined";
 
 import {
   Grid,
@@ -32,7 +33,7 @@ export default function BalanceCard() {
       variant: "success",
     },
     {
-      id: 1,
+      id: 3,
       name: "Info Account",
       accNumber: "2414 **** **** 4292",
       fund: 210000,
@@ -70,7 +71,7 @@ export default function BalanceCard() {
             balanceData.map((item) => {
               return (
                 <Grid
-                  kery={item.id}
+                  key={item.id}
                   container
                   alignItems="top"
                   elevation={0}
@@ -91,15 +92,15 @@ export default function BalanceCard() {
                     },
                   }}
                 >
-                  <Grid item lg={9}>
+                  <Grid item sm={12} md={9}>
                     <Typography variant="h7" component="h4">
                       {item.name}
                     </Typography>
                   </Grid>
-                  <Grid item lg={3} textAlign="right">
+                  <Grid item sm={12} md={3} textAlign="right">
                     <BalanceIcon fontSize="large" />
                   </Grid>
-                  <Grid item lg={12}>
+                  <Grid item sm={12} md={12}>
                     <Typography variant="h5" component="h5">
                       $ {item.fund}
                     </Typography>
@@ -142,21 +143,20 @@ export default function BalanceCard() {
                           open={Boolean(anchorEl)}
                           onClose={handleClose}
                           elevation={1}
-                          MenuListProps={{
-                            "aria-labelledby": `menu-trax${item.id}`,
-                          }}
                           PaperProps={{ component: "nav" }}
                         >
                           <MenuItem dense component="div">
                             <Link
                               href="#transfer"
                               component="h4"
+                              variant="body2"
                               underline="none"
                               py={0.5}
+                              px={0}
                             >
                               <OutputIcon
                                 fontSize="medium"
-                                sx={{ verticalAlign: "middle", mr: 0.75 }}
+                                sx={{ verticalAlign: "middle", mr: 0.5 }}
                               />
                               Transfer
                             </Link>
@@ -165,14 +165,32 @@ export default function BalanceCard() {
                             <Link
                               href="#statement"
                               component="h4"
+                              variant="body2"
                               underline="none"
                               py={0.5}
+                              px={0}
                             >
                               <SummarizeIcon
                                 fontSize="medium"
-                                sx={{ verticalAlign: "middle", mr: 0.75 }}
+                                sx={{ verticalAlign: "middle", mr: 0.5 }}
                               />
                               Statement
+                            </Link>
+                          </MenuItem>
+                          <MenuItem dense component="div">
+                            <Link
+                              href="#statement"
+                              component="h4"
+                              variant="body2"
+                              underline="none"
+                              py={0.5}
+                              px={0}
+                            >
+                              <ReportIcon
+                                fontSize="medium"
+                                sx={{ verticalAlign: "middle", mr: 0.5 }}
+                              />
+                              Freeze Account
                             </Link>
                           </MenuItem>
                         </Popover>

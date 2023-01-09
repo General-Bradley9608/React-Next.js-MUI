@@ -19,6 +19,7 @@ import CircleIcon from "@mui/icons-material/CircleOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
+import AddCardIcon from "@mui/icons-material/AddCircleOutline";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -118,9 +119,6 @@ export default function Dashboard() {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={12} lg={8}>
-          <Box>
-            <GroupButton />
-          </Box>
           <Paper
             sx={{
               p: 2,
@@ -129,7 +127,22 @@ export default function Dashboard() {
               minHeight: 240,
             }}
           >
+            <Box>
+              <Typography component="h6" variant="h5" color="secondary">
+                Linked Accounts
+              </Typography>
+            </Box>
             <CardBalance />
+            <Box marginY={2}>
+              <Button
+                variant="contained"
+                color="secondary"
+                endIcon={<AddCardIcon />}
+              >
+                Add Account
+              </Button>
+              {/* <GroupButton /> */}
+            </Box>
           </Paper>
         </Grid>
         {/* Recent Orders */}

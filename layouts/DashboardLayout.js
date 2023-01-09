@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 /* Components */
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,6 +20,7 @@ import {
   Divider,
   IconButton,
   Link,
+  useMediaQuery,
 } from "@mui/material";
 
 /* Icons */
@@ -34,6 +35,7 @@ import {
   mainListItems,
   secondaryListItems,
 } from "@components/ListMenu/listItems";
+
 import Copyright from "@components/Copyright";
 import FloatConfig from "@components/Float/Config";
 import FloatNotify from "@components/Float/Notify";
@@ -89,6 +91,9 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 function DashboardContent({ children }) {
+  const theme = useTheme();
+  const match = useMediaQuery(theme.breakpoints.down("md"), { noSsr: true });
+
   const [open, setOpen] = React.useState(true);
   const [searchOpen, setSearchOpen] = React.useState(true);
   const [openNotify, setOpenNotify] = React.useState(false);
@@ -97,6 +102,14 @@ function DashboardContent({ children }) {
   React.useEffect(() => {
     setOpenNotify(false);
   }, []);
+
+  React.useEffect(() => {
+    if (match) {
+      setOpen(false);
+    } else {
+      setOpen(true);
+    }
+  }, [match]);
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -152,7 +165,6 @@ function DashboardContent({ children }) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      {/* <CssBaseline /> */}
       <AppBar position="absolute" open={open} color="light">
         <Toolbar
           sx={{

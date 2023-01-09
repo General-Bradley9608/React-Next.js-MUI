@@ -116,7 +116,6 @@ const theme = createTheme({
     // },
     MuiListItemIcon: {
       styleOverrides: {
-        // Name of the slot
         root: {
           minWidth: "42px",
         },
@@ -124,9 +123,19 @@ const theme = createTheme({
     },
     MuiListSubheader: {
       styleOverrides: {
-        // Name of the slot
         root: {
           fontWeight: "400",
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontWeight: 500,
+          color: "#929292",
+          a: {
+            color: "#929292",
+          },
         },
       },
     },

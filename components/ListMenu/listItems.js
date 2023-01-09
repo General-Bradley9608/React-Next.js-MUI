@@ -1,6 +1,8 @@
 import * as React from "react";
 
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import SummarizeIcon from "@mui/icons-material/Summarize";
 
 import {
   Link,
@@ -36,7 +38,7 @@ export const secondaryListItems = (compact = false) => (
     </ListSubheader>
     <ListItemButton dense>
       <ListItemIcon>
-        <AssignmentIcon />
+        <AssessmentIcon />
       </ListItemIcon>
       <ListItemText primary="Current month" />
     </ListItemButton>
@@ -48,7 +50,7 @@ export const secondaryListItems = (compact = false) => (
     </ListItemButton>
     <ListItemButton dense>
       <ListItemIcon>
-        <AssignmentIcon />
+        <SummarizeIcon />
       </ListItemIcon>
       <ListItemText primary="Year-end sale" />
     </ListItemButton>
