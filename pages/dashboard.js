@@ -39,7 +39,7 @@ export default function Dashboard() {
         </Typography>
       </Toolbar>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} lg={4}>
+        <Grid item xs={12} sm={12} lg={5}>
           <Paper
             sx={{
               p: 2,
@@ -51,7 +51,7 @@ export default function Dashboard() {
             <Chart />
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={12} lg={8}>
+        <Grid item xs={12} sm={12} lg={7}>
           <Paper
             sx={{
               p: 2,
