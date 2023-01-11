@@ -14,6 +14,16 @@ import {
   Divider,
 } from "@mui/material";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import TablePagination from "@mui/material/TablePagination";
+
+// import Paper from "@mui/material/Paper";
+
 import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
 import CircleIcon from "@mui/icons-material/CircleOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
@@ -48,6 +58,7 @@ export default function Dashboard() {
       description:
         "Request for Approval to <b>Bank Solutions LTD  </b> AccNo: <b>9833-2342-2421</b>",
       action: "Approve",
+      createdAt: "Jun 10, 2021 at 9:08 AM",
     },
     {
       id: 2,
@@ -59,6 +70,7 @@ export default function Dashboard() {
       description:
         "Request <b>$9,300.020</b> for Deposit from AccNo: <b>9892-1234-123</b>",
       action: "Approve",
+      createdAt: "May 3, 2021 at 7:08 AM",
     },
     {
       id: 3,
@@ -70,6 +82,7 @@ export default function Dashboard() {
       description:
         "Request for Approval to <b>Bank Solutions LTD</b> AccNo: <b>3525-1551-2323</b>",
       action: "Approve",
+      createdAt: "April 1, 2021 at 6:01 AM",
     },
     {
       id: 4,
@@ -84,6 +97,7 @@ export default function Dashboard() {
       description:
         "Transfer In for <b>$1,000.000</b> from AccNo: <b>9892-1234-123</b>",
       action: "Check",
+      createdAt: "March 4, 2021 at 7:12 AM",
     },
     {
       id: 5,
@@ -95,9 +109,25 @@ export default function Dashboard() {
       description:
         "Request <b>$1,000.000</b> for Deposit from AccNo: <b>9892-1234-123</b>",
       action: "Approve",
+      createdAt: "March 1, 2021 at 10:12 AM",
     },
   ];
 
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
+  }
+
+  const rows = [
+    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+    createData("Eclair", 262, 16.0, 24, 6.0),
+    createData("Cupcake", 305, 3.7, 67, 4.3),
+    createData("Gingerbread", 356, 16.0, 49, 3.9),
+    createData("ButterMilk", 126, 11.0, 9, 2.9),
+    createData("Doughnut", 262, 16.0, 24, 6.0),
+    createData("Pizza", 305, 3.7, 67, 4.3),
+    createData("Burger", 356, 16.0, 49, 3.9),
+  ];
   return (
     <DashboardLayout>
       <Toolbar disableGutters component="nav">
@@ -236,7 +266,7 @@ export default function Dashboard() {
                         key={item.id}
                         display="flex"
                         justifyContent="space-between"
-                        alignItems="center"
+                        alignItems="top"
                         border={1}
                         borderColor="secondary.light"
                         paddingY={1}
@@ -259,7 +289,7 @@ export default function Dashboard() {
                           >
                             {item.icon} {item.title}
                           </Typography>
-                          <Box color="secondary.dark">
+                          <Box color="secondary.dark" mt={0.25}>
                             <div
                               dangerouslySetInnerHTML={{
                                 __html: item.description,
@@ -267,15 +297,19 @@ export default function Dashboard() {
                             />
                           </Box>
                         </Stack>
-                        <Box component="span">{item.createAt}</Box>
-                        <Button
-                          variant="text"
-                          size="small"
-                          color={item.type}
-                          startIcon={<CheckBoxIcon />}
-                        >
-                          {item.action}
-                        </Button>
+                        <Stack alignItems="end">
+                          <Box component="div" color="secondary.main">
+                            {item.createdAt}
+                          </Box>
+                          <Button
+                            variant="text"
+                            size="small"
+                            color={item.type}
+                            startIcon={<CheckBoxIcon />}
+                          >
+                            {item.action}
+                          </Button>
+                        </Stack>
                       </Box>
                     );
                   })}
@@ -299,7 +333,7 @@ export default function Dashboard() {
             <Grid container fontSize="small">
               <Grid container fontSize="small">
                 <Grid item xs={12}>
-                  {dataTasks &&
+                  {/* {dataTasks &&
                     dataTasks.map((item) => {
                       return (
                         <Box
@@ -348,7 +382,47 @@ export default function Dashboard() {
                           </Button>
                         </Box>
                       );
-                    })}
+                    })} */}
+                  <TableContainer>
+                    <Table
+                      sx={{ minWidth: 650 }}
+                      size="small"
+                      aria-label="a dense table"
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Dessert (100g serving)</TableCell>
+                          <TableCell align="right">Calories</TableCell>
+                          <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                          <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                          <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow
+                            key={row.name}
+                            hover
+                            sx={{
+                              "&:last-child td, &:last-child th": { border: 0 },
+                            }}
+                          >
+                            <TableCell component="th" scope="row">
+                              {row.name}
+                            </TableCell>
+                            <TableCell align="right">{row.calories}</TableCell>
+                            <TableCell align="right">{row.fat}</TableCell>
+                            <TableCell align="right">{row.carbs}</TableCell>
+                            <TableCell align="right">{row.protein}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                    {/* <TablePagination
+                      rowsPerPageOptions={[3, 6, { value: -1, label: "All" }]}
+                      count={rows.length}
+                    /> */}
+                  </TableContainer>
                   <Box textAlign="right" color="secondary">
                     <Link href="#">see all</Link>
                   </Box>

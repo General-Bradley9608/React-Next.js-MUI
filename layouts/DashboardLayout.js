@@ -7,6 +7,7 @@ import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import Stack from "@mui/material/Stack";
 // import Input from "@mui/material/Input";
 // import ClickAwayListener from "@mui/material/ClickAwayListener";
 
@@ -36,6 +37,7 @@ import {
   secondaryListItems,
 } from "@components/ListMenu/listItems";
 
+import AlertBar from "@components/Alert/SnackBar";
 import Copyright from "@components/Copyright";
 import FloatConfig from "@components/Float/Config";
 import FloatNotify from "@components/Float/Notify";
@@ -368,6 +370,12 @@ function DashboardContent({ children }) {
         }}
       >
         <Container maxWidth="xl" sx={{ mt: 2, mb: 4, pt: 6 }}>
+          <Stack spacing={2}>
+            <AlertBar />
+            <AlertBar />
+            <AlertBar />
+            <AlertBar />
+          </Stack>
           <FloatConfig />
           {children}
           <Copyright />

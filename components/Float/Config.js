@@ -95,7 +95,16 @@ export default function FloatConfig() {
             // onBlur={onBlurConfigBtn}
             // onMouseLeave={onBlurConfigBtn}
           >
-            {!open ? <Settings /> : <Close />}
+            {!open ? (
+              <Settings
+                sx={{
+                  transition: "transform .25s ease",
+                  ":hover": { transform: "rotate(90deg)" },
+                }}
+              />
+            ) : (
+              <Close />
+            )}
             {/* <AddIcon /> */}
           </Fab>
         </Box>
