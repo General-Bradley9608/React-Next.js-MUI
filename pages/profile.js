@@ -20,6 +20,7 @@ import MapIcon from "@mui/icons-material/MapOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import AddCardIcon from "@mui/icons-material/AddCircleOutline";
+import CheckBoxIcon from "@mui/icons-material/CheckBoxOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -33,6 +34,39 @@ import GroupButton from "@components/Group/Button";
 import shadows from "@mui/material/styles/shadows";
 
 export default function Dashboard() {
+  const dataTasks = [
+    {
+      id: 1,
+      title: "Transfer Approval",
+      type: "danger",
+      description:
+        "Request for Approval to [Bank Solutions LTD] AccNo: 9833-2342-2421",
+      action: "Approve",
+    },
+    {
+      id: 2,
+      title: "Deposit Approval",
+      type: "success",
+      description: "Request $9,300.020 for Deposit from AccNo: 9892-1234-123",
+      action: "Approve",
+    },
+    {
+      id: 3,
+      title: "Transfer Approval",
+      type: "danger",
+      description:
+        "Request for Approval to [Bank Solutions LTD] AccNo: 3525-1551-2323",
+      action: "Approve",
+    },
+    {
+      id: 4,
+      title: "Deposit Approval",
+      type: "success",
+      description: "Request $1,000.000 for Deposit from AccNo: 9892-1234-123",
+      action: "Approve",
+    },
+  ];
+
   return (
     <DashboardLayout>
       <Toolbar disableGutters component="nav">
@@ -135,8 +169,9 @@ export default function Dashboard() {
             <CardBalance />
             <Box marginY={2}>
               <Button
+                size="small"
                 variant="contained"
-                color="secondary"
+                color="success"
                 endIcon={<AddCardIcon />}
               >
                 Add Account
@@ -149,6 +184,74 @@ export default function Dashboard() {
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
             <Orders />
+          </Paper>
+        </Grid>
+        <Grid item lg={6}>
+          <Paper sx={{ p: 2 }}>
+            <Typography
+              component="h4"
+              variant="h7"
+              paddingBottom={1}
+              color="secondary.dark"
+            >
+              Tasks
+            </Typography>
+            <Grid container fontSize="small">
+              <Grid item lg={12}>
+                {dataTasks &&
+                  dataTasks.map((item) => {
+                    return (
+                      <Box
+                        key={item.id}
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        borderTop={1}
+                        borderColor="secondary.light"
+                        paddingY={1}
+                      >
+                        <Stack>
+                          <Typography
+                            color={`${item.type}.main`}
+                            fontWeight="600"
+                          >
+                            {item.title}
+                          </Typography>
+                          <Box color="secondary.dark">{item.description}</Box>
+                        </Stack>
+                        <Box component="span">{item.createAt}</Box>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          color="danger"
+                          startIcon={<CheckBoxIcon />}
+                        >
+                          {item.action}
+                        </Button>
+                      </Box>
+                    );
+                  })}
+                <Box textAlign="right" color="secondary">
+                  see all
+                </Box>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
+        <Grid item lg={6}>
+          <Paper sx={{ p: 2 }}>
+            <Typography component="h4">Projects</Typography>
+            <Grid container>
+              <Grid item lg={6}>
+                <Box>Test Project</Box>
+                <Box>Test Project</Box>
+                <Box>Test Project</Box>
+                <Box>Test Project</Box>
+              </Grid>
+              <Grid item lg={6}>
+                Test Task
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
       </Grid>

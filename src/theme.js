@@ -75,6 +75,11 @@ const theme = createTheme({
       fontWeight: "400",
       lineHeight: 1.5,
     },
+    h7: {
+      // fontFamily: roboto.style.fontFamily,
+      fontWeight: "600",
+      lineHeight: 1.5,
+    },
   },
   components: {
     // Name of the component

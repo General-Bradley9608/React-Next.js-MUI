@@ -85,22 +85,16 @@ export default function ReChart() {
   return (
     <React.Fragment>
       <Title>Today</Title>
+      {/* <div style={{ width: "100%", height: 300, overflow: "visible" }}> */}
       <ResponsiveContainer width={540} height={420}>
         <AreaChart
           width={730}
           height={250}
           data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
-            <linearGradient
-              id="colorUv"
-              x1="0"
-              y1="0"
-              x2="0"
-              y2="1"
-              filter="blur(12px);"
-            >
+            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
               <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
             </linearGradient>
@@ -134,13 +128,16 @@ export default function ReChart() {
           width={530}
           height={150}
           data={datav}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
         >
           <defs>
-            <linearGradient id="colorUvs" x1="0" y1="0" x2="0" y2="1">
+            <filter id="blurFilter">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+            </filter>
+            {/* <linearGradient id="colorUvs" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.85} />
               <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-            </linearGradient>
+            </linearGradient> */}
           </defs>
           {/* <XAxis dataKey="time" /> */}
           {/* <YAxis dataKey="amount" /> */}
@@ -150,11 +147,27 @@ export default function ReChart() {
             type="monotone"
             dataKey="amount"
             stroke="#82ca9d"
+            fillOpacity={0}
+            // fill="url(#colorUvs)"
+            // width={530}
+            // height={150}
+            // data={datav}
+          />
+          <Area
+            type="monotone"
+            dataKey="amount"
+            stroke="#82ca9d"
+            strokeWidth={20}
             fillOpacity={1}
-            fill="url(#colorUvs)"
+            fill="transparent"
+            width={530}
+            height={150}
+            data={datav}
+            style={{ filter: "url(#blurFilter)" }}
           />
         </AreaChart>
       </ResponsiveContainer>
+      {/* </div> */}
     </React.Fragment>
   );
 }
