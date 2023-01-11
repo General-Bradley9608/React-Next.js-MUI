@@ -19,8 +19,11 @@ import CircleIcon from "@mui/icons-material/CircleOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
-import AddCardIcon from "@mui/icons-material/AddCircleOutline";
+import AddCardIcon from "@mui/icons-material/AddCardOutlined";
 import CheckBoxIcon from "@mui/icons-material/CheckBoxOutlined";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import CommentBankIcon from "@mui/icons-material/CommentBank";
+import AddchartOutlinedIcon from "@mui/icons-material/AddchartOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -39,30 +42,58 @@ export default function Dashboard() {
       id: 1,
       title: "Transfer Approval",
       type: "danger",
+      icon: (
+        <AccountBalanceIcon fontSize="small" sx={{ verticalAlign: "middle" }} />
+      ),
       description:
-        "Request for Approval to [Bank Solutions LTD] AccNo: 9833-2342-2421",
+        "Request for Approval to <b>Bank Solutions LTD  </b> AccNo: <b>9833-2342-2421</b>",
       action: "Approve",
     },
     {
       id: 2,
       title: "Deposit Approval",
       type: "success",
-      description: "Request $9,300.020 for Deposit from AccNo: 9892-1234-123",
+      icon: (
+        <CommentBankIcon fontSize="small" sx={{ verticalAlign: "middle" }} />
+      ),
+      description:
+        "Request <b>$9,300.020</b> for Deposit from AccNo: <b>9892-1234-123</b>",
       action: "Approve",
     },
     {
       id: 3,
       title: "Transfer Approval",
       type: "danger",
+      icon: (
+        <AccountBalanceIcon fontSize="small" sx={{ verticalAlign: "middle" }} />
+      ),
       description:
-        "Request for Approval to [Bank Solutions LTD] AccNo: 3525-1551-2323",
+        "Request for Approval to <b>Bank Solutions LTD</b> AccNo: <b>3525-1551-2323</b>",
       action: "Approve",
     },
     {
       id: 4,
+      title: "Transfer In",
+      type: "info",
+      icon: (
+        <AddchartOutlinedIcon
+          fontSize="small"
+          sx={{ verticalAlign: "middle" }}
+        />
+      ),
+      description:
+        "Transfer In for <b>$1,000.000</b> from AccNo: <b>9892-1234-123</b>",
+      action: "Check",
+    },
+    {
+      id: 5,
       title: "Deposit Approval",
       type: "success",
-      description: "Request $1,000.000 for Deposit from AccNo: 9892-1234-123",
+      icon: (
+        <CommentBankIcon fontSize="small" sx={{ verticalAlign: "middle" }} />
+      ),
+      description:
+        "Request <b>$1,000.000</b> for Deposit from AccNo: <b>9892-1234-123</b>",
       action: "Approve",
     },
   ];
@@ -186,10 +217,10 @@ export default function Dashboard() {
             <Orders />
           </Paper>
         </Grid>
-        <Grid item lg={6}>
+        <Grid item sm={12} lg={6}>
           <Paper sx={{ p: 2 }}>
             <Typography
-              component="h4"
+              component="h3"
               variant="h7"
               paddingBottom={1}
               color="secondary.dark"
@@ -197,7 +228,7 @@ export default function Dashboard() {
               Tasks
             </Typography>
             <Grid container fontSize="small">
-              <Grid item lg={12}>
+              <Grid item xs={12}>
                 {dataTasks &&
                   dataTasks.map((item) => {
                     return (
@@ -206,24 +237,41 @@ export default function Dashboard() {
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"
-                        borderTop={1}
+                        border={1}
                         borderColor="secondary.light"
                         paddingY={1}
+                        paddingX={2}
+                        sx={{
+                          cursor: "pointer",
+                          transition: ".15s ease",
+                          ":hover": {
+                            bgcolor: "secondary.light",
+                            boxShadow: "2px 2px 10px #cccccc",
+                            transform: "translateY(-5px)",
+                          },
+                        }}
                       >
-                        <Stack>
+                        <Stack mr={2}>
                           <Typography
                             color={`${item.type}.main`}
+                            component="h5"
                             fontWeight="600"
                           >
-                            {item.title}
+                            {item.icon} {item.title}
                           </Typography>
-                          <Box color="secondary.dark">{item.description}</Box>
+                          <Box color="secondary.dark">
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: item.description,
+                              }}
+                            />
+                          </Box>
                         </Stack>
                         <Box component="span">{item.createAt}</Box>
                         <Button
-                          variant="outlined"
+                          variant="text"
                           size="small"
-                          color="danger"
+                          color={item.type}
                           startIcon={<CheckBoxIcon />}
                         >
                           {item.action}
@@ -232,24 +280,79 @@ export default function Dashboard() {
                     );
                   })}
                 <Box textAlign="right" color="secondary">
-                  see all
+                  <Link href="#">see all</Link>
                 </Box>
               </Grid>
             </Grid>
           </Paper>
         </Grid>
-        <Grid item lg={6}>
+        <Grid item sm={12} lg={6}>
           <Paper sx={{ p: 2 }}>
-            <Typography component="h4">Projects</Typography>
-            <Grid container>
-              <Grid item lg={6}>
-                <Box>Test Project</Box>
-                <Box>Test Project</Box>
-                <Box>Test Project</Box>
-                <Box>Test Project</Box>
-              </Grid>
-              <Grid item lg={6}>
-                Test Task
+            <Typography
+              component="h3"
+              variant="h7"
+              paddingBottom={1}
+              color="secondary.dark"
+            >
+              Projects
+            </Typography>
+            <Grid container fontSize="small">
+              <Grid container fontSize="small">
+                <Grid item xs={12}>
+                  {dataTasks &&
+                    dataTasks.map((item) => {
+                      return (
+                        <Box
+                          key={item.id}
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
+                          border={1}
+                          borderColor="secondary.light"
+                          paddingY={1}
+                          paddingX={2}
+                          sx={{
+                            transition: ".15s ease",
+                            cursor: "pointer",
+                            ":hover": {
+                              bgcolor: "secondary.light",
+                              boxShadow: "2px 2px 10px #cccccc",
+                              transform: "translateY(-5px)",
+                            },
+                          }}
+                        >
+                          <Stack mr={2}>
+                            <Typography
+                              color={`${item.type}.main`}
+                              component="h5"
+                              fontWeight="600"
+                            >
+                              {item.icon} {item.title}
+                            </Typography>
+                            <Box color="secondary.dark">
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: item.description,
+                                }}
+                              />
+                            </Box>
+                          </Stack>
+                          <Box component="span">{item.createAt}</Box>
+                          <Button
+                            variant="text"
+                            size="small"
+                            color={item.type}
+                            startIcon={<CheckBoxIcon />}
+                          >
+                            {item.action}
+                          </Button>
+                        </Box>
+                      );
+                    })}
+                  <Box textAlign="right" color="secondary">
+                    <Link href="#">see all</Link>
+                  </Box>
+                </Grid>
               </Grid>
             </Grid>
           </Paper>

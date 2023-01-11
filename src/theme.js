@@ -33,7 +33,7 @@ const theme = createTheme({
       light: "#f2f2f2",
     },
     success: { main: "#198754" },
-    info: { main: "#0dcaf0" },
+    info: { main: "#2e9cf2" }, //"#0dcaf0"
     warning: { main: "#ffc107" },
     danger: { main: "#dc3545" },
     light: { main: "#f8f9fa" },
