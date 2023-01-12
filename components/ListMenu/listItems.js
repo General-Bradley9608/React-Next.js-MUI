@@ -56,3 +56,23 @@ export const secondaryListItems = (compact = false) => (
     </ListItemButton>
   </React.Fragment>
 );
+
+export const thirdListItems = (compact = false) => (
+  <React.Fragment>
+    <ListSubheader component="div" hidden={!compact} color="primary">
+      Widgets
+    </ListSubheader>
+    <ListItemButton dense>
+      <ListItemIcon>
+        <AssessmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Current month" />
+    </ListItemButton>
+    <ListItemButton dense>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Last quarter" />
+    </ListItemButton>
+  </React.Fragment>
+);

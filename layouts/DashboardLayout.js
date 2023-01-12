@@ -35,6 +35,7 @@ import SettingIcon from "@mui/icons-material/Settings";
 import {
   mainListItems,
   secondaryListItems,
+  thirdListItems,
 } from "@components/ListMenu/listItems";
 
 import AlertBar from "@components/Alert/SnackBar";
@@ -384,6 +385,8 @@ function DashboardContent({ children }) {
           {mainListItems(open)}
           <Divider sx={{ my: 1 }} />
           {secondaryListItems(open)}
+          <Divider sx={{ my: 1 }} />
+          {thirdListItems(open)}
         </List>
       </Drawer>
       <Box
