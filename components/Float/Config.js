@@ -11,6 +11,11 @@ import Settings from "@mui/icons-material/Settings";
 export default function FloatConfig() {
   const [open, setOpen] = useState(false);
 
+  const fabHover = {
+    transition: "transform .25s ease",
+    ":hover": { transform: "rotate(90deg)" },
+  };
+
   function onClickConfigBtn() {
     setOpen(!open);
   }
@@ -92,19 +97,11 @@ export default function FloatConfig() {
             aria-label="add"
             size="small"
             onClick={onClickConfigBtn}
+            sx={fabHover}
             // onBlur={onBlurConfigBtn}
             // onMouseLeave={onBlurConfigBtn}
           >
-            {!open ? (
-              <Settings
-                sx={{
-                  transition: "transform .25s ease",
-                  ":hover": { transform: "rotate(90deg)" },
-                }}
-              />
-            ) : (
-              <Close />
-            )}
+            {!open ? <Settings /> : <Close />}
             {/* <AddIcon /> */}
           </Fab>
         </Box>

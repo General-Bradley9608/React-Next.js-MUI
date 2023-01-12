@@ -190,55 +190,75 @@ function DashboardContent({ children }) {
             href="/"
             sx={{
               marginLeft: 0,
-              marginRight: "5px",
+              marginRight: ".75rem",
             }}
           >
             <HomeIcon fontSize="small" />
           </IconButton>
+          <Divider
+            orientation="vertical"
+            variant="center"
+            flexItem
+            sx={{
+              display: "block",
+              margin: "27px 7px 0 5px",
+              width: "10px",
+              height: "10px",
+              borderWidth: 0,
+              borderStyle: "none",
+              borderColor: "none",
+              borderTop: "1px solid #000",
+              borderLeft: "1px solid #000",
+              transform: "rotate(135deg) translate(7px,7px)",
+            }}
+          />
           <Typography
-            component="h2"
+            component="a"
+            href="/"
             variant="subtitle1"
             color="inherit"
             noWrap
-            sx={{ flexGrow: 1 }}
+            sx={{ flexGrow: 1, textDecoration: "none" }}
           >
             Dashboard
           </Typography>
-          <IconButton
-            color="inherit"
-            onClick={() => setSearchOpen(!searchOpen)}
-          >
-            <SearchIcon fontSize="small" />
-          </IconButton>
-          {/* <ClickAwayListener onClickAway={() => setSearchOpen(!searchOpen)}> */}
-          <Box
-            onBlur={() => setSearchOpen(!searchOpen)}
-            hidden={searchOpen}
-            component="form"
-            sx={{
-              "& .MuiTextField-root": { m: 2, width: "12ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <Input
-              placeholder="Search.."
-              color="light"
-              ref={inputRef}
-              autoFocus
-            />
-          </Box>
-          {/* </ClickAwayListener> */}
-          <FloatNotify show={openNotify} items={itemsNotify} />
-          <IconButton
-            color="inherit"
-            aria-label="profile of current user"
-            aria-controls="menu-appbar-profile"
-            aria-haspopup="true"
-            onClick={handleMenuProfile}
-          >
-            <AccountIcon fontSize="small" />
-          </IconButton>
+          <Stack spacing={{ md: 1 }} direction="row" padding={0}>
+            <IconButton
+              color="inherit"
+              onClick={() => setSearchOpen(!searchOpen)}
+            >
+              <SearchIcon fontSize="small" />
+            </IconButton>
+            {/* <ClickAwayListener onClickAway={() => setSearchOpen(!searchOpen)}> */}
+            <Box
+              onBlur={() => setSearchOpen(!searchOpen)}
+              hidden={searchOpen}
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 2, width: "12ch" },
+              }}
+              noValidate
+              autoComplete="off"
+            >
+              <Input
+                placeholder="Search.."
+                color="light"
+                ref={inputRef}
+                autoFocus
+              />
+            </Box>
+            {/* </ClickAwayListener> */}
+            <FloatNotify show={openNotify} items={itemsNotify} />
+            <IconButton
+              color="inherit"
+              aria-label="profile of current user"
+              aria-controls="menu-appbar-profile"
+              aria-haspopup="true"
+              onClick={handleMenuProfile}
+            >
+              <AccountIcon fontSize="small" />
+            </IconButton>
+          </Stack>
           <Menu
             id="menu-appbar-profile"
             keepMounted
@@ -370,12 +390,10 @@ function DashboardContent({ children }) {
         }}
       >
         <Container maxWidth="xl" sx={{ mt: 2, mb: 4, pt: 6 }}>
-          <Stack spacing={2}>
-            <AlertBar />
-            <AlertBar />
-            <AlertBar />
-            <AlertBar />
-          </Stack>
+          <AlertBar
+            hidden={false}
+            content={{ title: "", description: "", type: "" }}
+          />
           <FloatConfig />
           {children}
           <Copyright />
