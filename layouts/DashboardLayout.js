@@ -46,6 +46,80 @@ import ScrollToTop from "@components/Scroll/ToTop";
 /* Config */
 import { constant } from "@config/constants";
 
+const style = {
+  boxSearch: {
+    "& .MuiTextField-root": { m: 2, width: "12ch" },
+  },
+  drawer: {
+    boxShadow: "0 .3rem .8rem rgba(0, 0, 0, .12)",
+    transition: "all .2s ease-out",
+    zIndex: 11,
+    border: 0,
+  },
+  drawerPaper: {
+    ".MuiDrawer-paper": {
+      width: "58px",
+      position: "relative",
+    },
+  },
+  dividerArrow: {
+    display: "block",
+    margin: "27px 7px 0 5px",
+    width: "10px",
+    height: "10px",
+    borderWidth: 0,
+    borderStyle: "none",
+    borderColor: "none",
+    borderTop: "1px solid #000",
+    borderLeft: "1px solid #000",
+    transform: "rotate(135deg) translate(7px,7px)",
+  },
+  menuPaperProps: {
+    elevation: 0,
+    sx: {
+      overflow: "visible",
+      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+      mt: 1.5,
+      "& .MuiAvatar-root": {
+        width: 32,
+        height: 32,
+        ml: -0.5,
+        mr: 1,
+      },
+      "&:before": {
+        content: '""',
+        display: "block",
+        position: "absolute",
+        top: 0,
+        right: 14,
+        width: 10,
+        height: 10,
+        bgcolor: "background.paper",
+        transform: "translateY(-50%) rotate(45deg)",
+        zIndex: 0,
+      },
+    },
+  },
+  menuProfile: {
+    a: { textDecoration: "none" },
+    svg: { fontSize: "large", verticalAlign: "middle", mr: 0.5 },
+  },
+  toolbar: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    px: [1],
+    a: {
+      transition: "all .5s ease",
+      verticalAlign: "middle",
+      ml: 1.5,
+      ":hover": {
+        filter: "brightness(1.35);",
+      },
+    },
+  },
+};
+
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -199,18 +273,7 @@ function DashboardContent({ children }) {
             orientation="vertical"
             variant="center"
             flexItem
-            sx={{
-              display: "block",
-              margin: "27px 7px 0 5px",
-              width: "10px",
-              height: "10px",
-              borderWidth: 0,
-              borderStyle: "none",
-              borderColor: "none",
-              borderTop: "1px solid #000",
-              borderLeft: "1px solid #000",
-              transform: "rotate(135deg) translate(7px,7px)",
-            }}
+            sx={style.dividerArrow}
           />
           <Typography
             component="a"
@@ -234,9 +297,7 @@ function DashboardContent({ children }) {
               onBlur={() => setSearchOpen(!searchOpen)}
               hidden={searchOpen}
               component="form"
-              sx={{
-                "& .MuiTextField-root": { m: 2, width: "12ch" },
-              }}
+              sx={style.boxSearch}
               noValidate
               autoComplete="off"
             >
@@ -271,36 +332,8 @@ function DashboardContent({ children }) {
               vertical: "top",
               horizontal: "right",
             }}
-            sx={{
-              a: { textDecoration: "none" },
-              svg: { fontSize: "large", verticalAlign: "middle", mr: 0.5 },
-            }}
-            PaperProps={{
-              elevation: 0,
-              sx: {
-                overflow: "visible",
-                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                mt: 1.5,
-                "& .MuiAvatar-root": {
-                  width: 32,
-                  height: 32,
-                  ml: -0.5,
-                  mr: 1,
-                },
-                "&:before": {
-                  content: '""',
-                  display: "block",
-                  position: "absolute",
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: "background.paper",
-                  transform: "translateY(-50%) rotate(45deg)",
-                  zIndex: 0,
-                },
-              },
-            }}
+            sx={style.menuProfile}
+            PaperProps={style.menuPaperProps}
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
@@ -324,34 +357,11 @@ function DashboardContent({ children }) {
         variant="permanent"
         open={open}
         sx={{
-          boxShadow: "0 .3rem .8rem rgba(0, 0, 0, .12)",
-          transition: "all .2s ease-out",
-          zIndex: 11,
-          border: 0,
-          ...(!open && {
-            ".MuiDrawer-paper": {
-              width: "58px",
-              position: "relative",
-            },
-          }),
+          ...style.drawer,
+          ...(!open && { ...style.drawerPaper }),
         }}
       >
-        <Toolbar
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            px: [1],
-            a: {
-              transition: "all .5s ease",
-              verticalAlign: "middle",
-              ml: 1.5,
-              ":hover": {
-                filter: "brightness(1.35);",
-              },
-            },
-          }}
-        >
+        <Toolbar sx={style.toolbar}>
           <Link href="/">
             <img
               src="/logo.svg"

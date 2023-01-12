@@ -41,7 +41,7 @@ export default function SnackBar(props) {
       onClose={onCloseBar}
       key="top-right"
     >
-      <Alert open={alertOpen} onClose={handleCloseAlert} severity="success">
+      <Alert open={alertOpen} onClose={handleCloseAlert} severity="warning">
         This is a success message!
       </Alert>
     </Snackbar>

@@ -26,6 +26,7 @@ import TablePagination from "@mui/material/TablePagination";
 
 import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
 import CircleIcon from "@mui/icons-material/CircleOutlined";
+import ChatIcon from "@mui/icons-material/ChatOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
@@ -209,6 +210,9 @@ export default function Dashboard() {
               </Button>
               <Button startIcon={<PhoneIcon />} variant="outlined" size="small">
                 Phone
+              </Button>
+              <Button startIcon={<ChatIcon />} variant="outlined" size="small">
+                Chat
               </Button>
             </Box>
           </Paper>

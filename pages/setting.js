@@ -131,7 +131,7 @@ export default function Dashboard() {
               <Button color="danger" variant="outlined">
                 Transfer
               </Button>
-              <GroupButton />
+              <GroupButton dense />
             </Box>
           </Paper>
         </Grid>

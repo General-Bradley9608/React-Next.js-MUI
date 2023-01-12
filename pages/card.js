@@ -14,7 +14,9 @@ import {
 // import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 // import HomeIcon from "@mui/icons-material/HomeOutlined";
 import StarIcon from "@mui/icons-material/StarBorderOutlined";
-import BadgeIcon from "@mui/icons-material/LabelOutlined";
+import BadgeIcon from "@mui/icons-material/FolderOpenTwoTone";
+import PublishIcon from "@mui/icons-material/TimerTwoTone";
+import ReadIcon from "@mui/icons-material/ChevronRightTwoTone";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -27,6 +29,7 @@ export default function Page() {
     description: "lorem ipsum dolor sit amet",
     image:
       "https://images.unsplash.com/photo-1661956601030-fdfb9c7e9e2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&h=720&q=80",
+    createdAt: "11 January, 2023",
   };
   return (
     <DashboardLayout>
@@ -112,13 +115,25 @@ export default function Page() {
                     }}
                   />
                   {post.description}
+                  <PublishIcon
+                    fontSize="small"
+                    sx={{
+                      verticalAlign: "middle",
+                      mx: 0.5,
+                    }}
+                  />
+                  {post.createdAt}
                 </Box>
                 <Box component="p" color="white">
                   Leverage agile frameworks to provide a robust synopsis for
                   high level overviews. Iterative approaches to corporate
                   strategy foster collaborative thinking to further the overall
                   value proposition.
-                  <Button variant="default" color="primary">
+                  <Button
+                    endIcon={<ReadIcon />}
+                    variant="default"
+                    color="primary"
+                  >
                     Read More
                   </Button>
                 </Box>

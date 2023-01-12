@@ -50,6 +50,7 @@ export default function GroupButton(props) {
         ref={anchorRef}
         aria-label="split button"
         sx={{ mb: 1.5 }}
+        {...props}
       >
         <Button onClick={handleClick}>{options[selectedIndex]}</Button>
         <Button

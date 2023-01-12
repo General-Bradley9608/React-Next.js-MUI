@@ -449,7 +449,7 @@ export default function Index() {
                         >
                           <Grid item display="flex" alignItems="center">
                             <Avatar
-                              variant="square"
+                              variant="rounded"
                               sx={{
                                 width: 18,
                                 height: 18,
@@ -459,8 +459,8 @@ export default function Index() {
                               <PersonIcon fontSize="small" />
                             </Avatar>
                             <Typography
-                              variant="subtitle2"
-                              component="p"
+                              variant="caption"
+                              component="span"
                               color="secondary"
                               ml={0.85}
                             >
@@ -469,7 +469,7 @@ export default function Index() {
                           </Grid>
                           <Grid item display="flex" alignItems="center">
                             <Avatar
-                              variant="square"
+                              variant="rounded"
                               sx={{
                                 width: 18,
                                 height: 18,
@@ -479,8 +479,8 @@ export default function Index() {
                               <FolderIcon fontSize="small" />
                             </Avatar>
                             <Typography
-                              variant="subtitle2"
-                              component="p"
+                              variant="caption"
+                              component="span"
                               color="secondary"
                               ml={0.85}
                             >

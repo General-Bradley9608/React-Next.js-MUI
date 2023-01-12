@@ -89,6 +89,19 @@ const theme = createTheme({
         disableRipple: true, // No more ripple, on the whole application 💣!
       },
     },
+    MuiIconButton: {
+      defaultProps: {
+        disableTouchRipple: true,
+        disableFocusRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          ":hover": {
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
     MuiButtonGroup: {
       defaultProps: {
         // The props to change the default for.
@@ -130,6 +143,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontWeight: "400",
+          color: "#b0afaf",
+          textTransform: "uppercase",
+          fontSize: "12px",
+          letterSpacing: ".5px",
         },
       },
     },
