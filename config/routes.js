@@ -7,6 +7,7 @@ import AppRegistration from "@mui/icons-material/AppRegistration";
 import CardTravelIcon from "@mui/icons-material/CardTravel";
 import LayersIcon from "@mui/icons-material/Layers";
 import CardsIcon from "@mui/icons-material/CardMembership";
+import AccountIcon from "@mui/icons-material/AccountCircle";
 
 /* Documentation Icons */
 import ApiIcon from "@mui/icons-material/Api";
@@ -167,6 +168,13 @@ const routeDashboard = {
     href: "/blog",
     url: "/blog",
     to: "/blog",
+  },
+  profile: {
+    name: "Profile",
+    icon: <AccountIcon />,
+    href: "/profile",
+    url: "/profile",
+    to: "/profile",
   },
 };
 
