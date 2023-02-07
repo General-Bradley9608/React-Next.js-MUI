@@ -1,16 +1,7 @@
 import * as React from "react";
 
 /* MUI */
-import {
-  Box,
-  Paper,
-  Grid,
-  Typography,
-  Toolbar,
-  IconButton,
-} from "@mui/material";
-
-import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
+import { Avatar, Box, Paper, Grid, Typography } from "@mui/material";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -19,45 +10,48 @@ import DashboardLayout from "@layouts/DashboardLayout";
 import Chart from "@components/Chart/ReChart";
 import Deposits from "@components/Deposits";
 import Orders from "@components/Orders";
+import DashboardToolbar from "@components/Toolbar/Dashboard";
+import AvatarProfile from "@components/Avatar/Profile";
 
 import shadows from "@mui/material/styles/shadows";
 
 export default function Dashboard() {
   return (
     <DashboardLayout>
-      <Toolbar>
-        <Typography component="h6" variant="subtitle2" color="secondary.main">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="Hi Administrator"
-            size="small"
-          >
-            <CommnentIcon color="secondary" />
-          </IconButton>
-          Hi, Administrator
-        </Typography>
-      </Toolbar>
+      <DashboardToolbar />
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} lg={5}>
-          <Paper
+        <Grid item xs={12} sm={12} lg={4}>
+          {/* <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
               minHeight: 240,
             }}
-          >
-            <Chart />
-          </Paper>
+          > */}
+          {/* <Chart /> */}
+          <Grid container wrap="wrap" spacing={5}>
+            <Grid item lg={24}>
+              <AvatarProfile cog={true} />
+              {/* <Avatar />{" "}
+                <Typography component="h2" variant="caption">
+                  asdas{" "}
+                </Typography> */}
+            </Grid>
+            {/* <Grid item lg={9}>
+                <Box>Milan</Box>
+                <Box>Footbal Club</Box>
+              </Grid> */}
+          </Grid>
+          {/* </Paper> */}
         </Grid>
-        <Grid item xs={12} sm={12} lg={7}>
+        <Grid item xs={12} sm={12} lg={8}>
           <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
-              minHeight: 240,
+              minHeight: "100%",
             }}
           >
             <Grid container spacing={2}>

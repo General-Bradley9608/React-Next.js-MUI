@@ -2,7 +2,6 @@ import * as React from "react";
 
 /* MUI */
 import {
-  Avatar,
   Box,
   Stack,
   Paper,
@@ -11,7 +10,6 @@ import {
   Toolbar,
   Link,
   Button,
-  Divider,
 } from "@mui/material";
 
 import Table from "@mui/material/Table";
@@ -24,12 +22,8 @@ import TablePagination from "@mui/material/TablePagination";
 
 // import Paper from "@mui/material/Paper";
 
-import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
+import CommentIcon from "@mui/icons-material/CommentBankOutlined";
 import CircleIcon from "@mui/icons-material/CircleOutlined";
-import ChatIcon from "@mui/icons-material/ChatOutlined";
-import MapIcon from "@mui/icons-material/MapOutlined";
-import EmailIcon from "@mui/icons-material/EmailOutlined";
-import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
 import AddCardIcon from "@mui/icons-material/AddCardOutlined";
 import CheckBoxIcon from "@mui/icons-material/CheckBoxOutlined";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
@@ -43,6 +37,7 @@ import DashboardLayout from "@layouts/DashboardLayout";
 // import Chart from "@components/Chart/ReChart";
 import CardBalance from "@components/Card/Balance";
 import Orders from "@components/Orders";
+import AvatarProfile from "@components/Avatar/Profile";
 import GroupButton from "@components/Group/Button";
 
 import shadows from "@mui/material/styles/shadows";
@@ -154,68 +149,13 @@ export default function Dashboard() {
             svg: { verticalAlign: "middle", mr: 1 },
           }}
         >
-          <CommnentIcon fontSize="small" />
+          <CommentIcon fontSize="small" />
           Hi, Administrator
         </Typography>
       </Toolbar>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} lg={4}>
-          <Paper
-            sx={{
-              p: 3,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              minHeight: 240,
-            }}
-          >
-            <Avatar
-              src="https://images.unsplash.com/photo-1609010697446-11f2155278f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=340&h=340&q=80"
-              sx={{
-                width: "80px",
-                height: "80px",
-                border: 2,
-                mb: 1,
-              }}
-            />
-            <Typography component="h4" variant="subtitle1">
-              Lance Gascoigne
-            </Typography>
-            <Typography
-              component="span"
-              variant="subtitle2"
-              color="secondary"
-              fontWeight={300}
-            >
-              Web Administrator
-            </Typography>
-            <Typography component="div" variant="subtitle2" color="secondary">
-              <MapIcon sx={{ verticalAlign: "middle", fontSize: "1.25rem" }} />{" "}
-              Memphis, Tennessee
-            </Typography>
-            <Divider
-              flexItem
-              textAlign="center"
-              variant="middle"
-              sx={{ mt: 2 }}
-            />
-            <Box
-              sx={{
-                my: 2,
-                button: { borderRadius: "50px", px: 1.5, mr: 0.75 },
-              }}
-            >
-              <Button startIcon={<EmailIcon />} variant="outlined" size="small">
-                Email
-              </Button>
-              <Button startIcon={<PhoneIcon />} variant="outlined" size="small">
-                Phone
-              </Button>
-              <Button startIcon={<ChatIcon />} variant="outlined" size="small">
-                Chat
-              </Button>
-            </Box>
-          </Paper>
+          <AvatarProfile />
         </Grid>
         <Grid item xs={12} sm={12} lg={8}>
           <Paper
@@ -223,7 +163,7 @@ export default function Dashboard() {
               p: 2,
               display: "flex",
               flexDirection: "column",
-              minHeight: 240,
+              minHeight: "100%",
             }}
           >
             <Box>

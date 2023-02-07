@@ -113,24 +113,24 @@ export default function Album() {
             </Stack>
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 8 }} maxWidth="lg">
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid container spacing={2}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
                   sx={{
-                    height: "100%",
+                    maxHeight: "100%",
                     display: "flex",
                     flexDirection: "column",
                   }}
                 >
                   <CardMedia
                     component="img"
-                    sx={{
-                      // 16:9
-                      pt: "56.25%",
-                    }}
+                    // sx={{
+                    //   // 16:9
+                    //   pt: "56.25%",
+                    // }}
                     image="https://source.unsplash.com/random"
                     alt="random"
                   />
