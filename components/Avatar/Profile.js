@@ -68,7 +68,12 @@ export default function Component(props) {
               horizontal: "left",
             }}
           >
-            <Stack direction="column" spacing={1} padding={1}>
+            <Stack
+              direction="row"
+              spacing={1}
+              padding={1}
+              divider={<Divider orientation="vertical" flexItem />}
+            >
               <Button
                 variant="text"
                 size="small"

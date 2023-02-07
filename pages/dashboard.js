@@ -8,7 +8,7 @@ import DashboardLayout from "@layouts/DashboardLayout";
 
 /* Components */
 import Chart from "@components/Chart/ReChart";
-import Deposits from "@components/Deposits";
+import Deposit from "@components/Deposit";
 import Orders from "@components/Orders";
 import DashboardToolbar from "@components/Toolbar/Dashboard";
 import AvatarProfile from "@components/Avatar/Profile";
@@ -54,20 +54,7 @@ export default function Dashboard() {
               minHeight: "100%",
             }}
           >
-            <Grid container spacing={2}>
-              <Grid item lg={3}>
-                <Deposits />
-              </Grid>
-              <Grid item lg={3}>
-                <Deposits />
-              </Grid>
-              <Grid item lg={3}>
-                <Deposits />
-              </Grid>
-              <Grid item lg={3}>
-                <Deposits />
-              </Grid>
-            </Grid>
+            <Deposit />
           </Paper>
         </Grid>
         {/* Recent Orders */}

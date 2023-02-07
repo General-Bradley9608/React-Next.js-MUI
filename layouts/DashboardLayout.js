@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 
 /* Components */
+import { ClickAwayListener } from "@mui/base";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -295,7 +296,8 @@ function DashboardContent({ children }) {
             </IconButton>
             {/* <ClickAwayListener onClickAway={() => setSearchOpen(!searchOpen)}> */}
             <Box
-              onBlur={() => setSearchOpen(!searchOpen)}
+              // onBlur={() => setSearchOpen(!searchOpen)}
+              // onMouseLeave={() => setSearchOpen(!searchOpen)}
               hidden={searchOpen}
               component="form"
               sx={style.boxSearch}
@@ -305,7 +307,9 @@ function DashboardContent({ children }) {
               <Input
                 placeholder="Search.."
                 color="light"
+                dense
                 ref={inputRef}
+                onBlur={() => setSearchOpen(!searchOpen)}
                 autoFocus
               />
             </Box>
