@@ -22,6 +22,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import RefreshIcon from "@mui/icons-material/RefreshOutlined";
 import CachedIcon from "@mui/icons-material/CachedOutlined";
 import OffIcon from "@mui/icons-material/HighlightOffOutlined";
+
 import Title from "./Title";
 
 function preventDefault(event) {
@@ -39,6 +40,7 @@ export default function Component(props) {
         dateOpen: "15 March, 2019",
         dateMature: "15, March, 2024",
         interest: "$450.00",
+        type: "success",
       },
       {
         id: 2,
@@ -48,6 +50,7 @@ export default function Component(props) {
         dateOpen: "15 March, 2019",
         dateMature: "15, March, 2024",
         interest: "$450.00",
+        type: "info",
       },
       {
         id: 3,
@@ -57,6 +60,7 @@ export default function Component(props) {
         dateOpen: "15 March, 2019",
         dateMature: "15, March, 2024",
         interest: "$450.00",
+        type: "warning",
       },
       {
         id: 4,
@@ -66,6 +70,7 @@ export default function Component(props) {
         dateOpen: "15 March, 2019",
         dateMature: "15, March, 2024",
         interest: "$450.00",
+        type: "danger",
       },
     ],
     cog = false,
@@ -85,15 +90,85 @@ export default function Component(props) {
   const id = open ? "popover-cog-deposit" : undefined;
 
   return (
-    <Box display="flex">
-      {/* <Box alignSelf="end" size="small"> */}
+    <Box
+      display="flex"
+      sx={{
+        p: 0,
+        flexDirection: "column",
+        minHeight: "100%",
+      }}
+    >
+      <Grid container spacing={0}>
+        <Grid item xs={11}>
+          <Typography>Deposit</Typography>
+        </Grid>
+        <Grid item xs={1}>
+          <Box sx={{ float: "right" }}>
+            <IconButton
+              size="small"
+              aria-describedby={id}
+              children={<MoreIcon size="small" />}
+              onClick={handleClick}
+            />
+            <Popover
+              marginThreshold={0}
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              elevation={2}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+            >
+              <Stack
+                direction="column"
+                spacing={1}
+                padding={1}
+                divider={<Divider orientation="horizontal" flexItem />}
+              >
+                <Button
+                  variant="text"
+                  size="small"
+                  startIcon={<RefreshIcon size="small" />}
+                >
+                  Refresh
+                </Button>
+                <Button
+                  variant="text"
+                  size="small"
+                  startIcon={<CachedIcon size="small" />}
+                >
+                  Reload
+                </Button>
+                <Button
+                  variant="text"
+                  size="small"
+                  startIcon={<OffIcon size="small" />}
+                >
+                  Remove
+                </Button>
+              </Stack>
+            </Popover>
+          </Box>
+        </Grid>
+      </Grid>
       <Grid container spacing={4}>
         {items && items.length > 0
           ? items.map((obj) => {
               return (
                 <Grid key={obj.id} item lg={3}>
                   <Title>{obj.title}</Title>
-                  <Typography component="p" variant={"h5"}>
+                  <Typography
+                    component="p"
+                    variant={"h5"}
+                    color={`${obj.type}.main`}
+                  >
                     {obj.summary}
                   </Typography>
                   <Paper
@@ -105,7 +180,11 @@ export default function Component(props) {
                     }}
                     elevation={0}
                   >
-                    <Typography component="h5" variant="body" color="primary">
+                    <Typography
+                      component="h5"
+                      variant="body"
+                      color={`${obj.type}.main`}
+                    >
                       Account No
                     </Typography>
                     <Typography
@@ -127,7 +206,7 @@ export default function Component(props) {
                   <Divider light={true} sx={{ marginY: 1.25 }} />
                   <Typography
                     component="h4"
-                    color="primary.main"
+                    color={`${obj.type}.main`}
                     variant="body"
                   >
                     Interest: {obj.interest}
@@ -142,59 +221,6 @@ export default function Component(props) {
             })
           : ""}
       </Grid>
-      {/* </Box> */}
-      <Box alignSelf="end" size="small">
-        <IconButton
-          aria-describedby={id}
-          children={<MoreIcon size="small" />}
-          onClick={handleClick}
-        />
-        <Popover
-          marginThreshold={0}
-          id={id}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          elevation={2}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-        >
-          <Stack
-            direction="row"
-            spacing={1}
-            padding={1}
-            divider={<Divider orientation="vertical" flexItem />}
-          >
-            <Button
-              variant="text"
-              size="small"
-              startIcon={<RefreshIcon size="small" />}
-            >
-              Refresh
-            </Button>
-            <Button
-              variant="text"
-              size="small"
-              startIcon={<CachedIcon size="small" />}
-            >
-              Reload
-            </Button>
-            <Button
-              variant="text"
-              size="small"
-              startIcon={<OffIcon size="small" />}
-            >
-              Remove
-            </Button>
-          </Stack>
-        </Popover>
-      </Box>
     </Box>
   );
 }

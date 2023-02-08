@@ -1,7 +1,24 @@
 import * as React from "react";
 
 /* MUI */
-import { Avatar, Box, Paper, Grid, Typography } from "@mui/material";
+import {
+  Avatar,
+  Button,
+  Box,
+  Divider,
+  Grid,
+  Paper,
+  Typography,
+  IconButton,
+  Popover,
+  Stack,
+} from "@mui/material";
+
+/* Icons */
+import MoreIcon from "@mui/icons-material/MoreVert";
+import RefreshIcon from "@mui/icons-material/RefreshOutlined";
+import CachedIcon from "@mui/icons-material/CachedOutlined";
+import OffIcon from "@mui/icons-material/HighlightOffOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
@@ -16,6 +33,19 @@ import AvatarProfile from "@components/Avatar/Profile";
 import shadows from "@mui/material/styles/shadows";
 
 export default function Dashboard() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "popover-cog-deposit" : undefined;
+
   return (
     <DashboardLayout>
       <DashboardToolbar />
@@ -60,6 +90,58 @@ export default function Dashboard() {
         {/* Recent Orders */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+            <Box alignSelf="start" size="small">
+              <IconButton
+                aria-describedby={id}
+                children={<MoreIcon size="small" />}
+                onClick={handleClick}
+              />
+              <Popover
+                marginThreshold={0}
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                elevation={2}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+              >
+                <Stack
+                  direction="column"
+                  spacing={1}
+                  padding={1}
+                  divider={<Divider orientation="horizontal" flexItem />}
+                >
+                  <Button
+                    variant="text"
+                    size="small"
+                    startIcon={<RefreshIcon size="small" />}
+                  >
+                    Refresh
+                  </Button>
+                  <Button
+                    variant="text"
+                    size="small"
+                    startIcon={<CachedIcon size="small" />}
+                  >
+                    Reload
+                  </Button>
+                  <Button
+                    variant="text"
+                    size="small"
+                    startIcon={<OffIcon size="small" />}
+                  >
+                    Remove
+                  </Button>
+                </Stack>
+              </Popover>
+            </Box>
             <Orders />
           </Paper>
         </Grid>
