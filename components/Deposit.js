@@ -92,11 +92,10 @@ export default function Component(props) {
   return (
     <Box
       display="flex"
-      sx={{
-        p: 0,
-        flexDirection: "column",
-        minHeight: "100%",
-      }}
+      p={0}
+      justifyContent="space-between"
+      flexDirection="column"
+      minHeight="100%"
     >
       <Grid container spacing={0}>
         <Grid item xs={11}>
@@ -211,11 +210,6 @@ export default function Component(props) {
                   >
                     Interest: {obj.interest}
                   </Typography>
-                  <Box marginY={1.25}>
-                    <Link color="primary" href="#" onClick={preventDefault}>
-                      View balance
-                    </Link>
-                  </Box>
                 </Grid>
               );
             })
