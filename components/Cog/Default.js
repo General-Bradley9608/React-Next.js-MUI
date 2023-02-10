@@ -32,7 +32,7 @@ export default function Component(props) {
   const id = open ? "popover-cog-default" : undefined;
 
   return (
-    <Box alignSelf="end" size="small">
+    <Box alignSelf="start" size="small">
       <IconButton
         aria-describedby={id}
         children={<MoreIcon size="small" />}

@@ -197,14 +197,23 @@ export default function Dashboard() {
         </Grid>
         <Grid item sm={12} lg={6}>
           <Paper sx={{ p: 2 }}>
-            <Typography
-              component="h3"
-              variant="h7"
-              paddingBottom={1}
-              color="secondary.dark"
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              // alignContent="center"
+              // verticalAlign="top"
             >
-              Tasks
-            </Typography>
+              <Typography
+                component="h3"
+                variant="h7"
+                paddingBottom={1}
+                color="secondary.dark"
+              >
+                Tasks
+              </Typography>
+              <Cog />
+            </Box>
             <Grid container fontSize="small">
               <Grid item xs={12}>
                 {dataTasks &&
