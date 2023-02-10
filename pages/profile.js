@@ -38,6 +38,9 @@ import DashboardLayout from "@layouts/DashboardLayout";
 import CardBalance from "@components/Card/Balance";
 import Orders from "@components/Orders";
 import AvatarProfile from "@components/Avatar/Profile";
+
+import Cog from "@components/Cog/Default";
+
 import GroupButton from "@components/Group/Button";
 
 import shadows from "@mui/material/styles/shadows";
@@ -166,10 +169,11 @@ export default function Dashboard() {
               minHeight: "100%",
             }}
           >
-            <Box>
+            <Box display="flex" justifyContent="space-between" marginBottom={1}>
               <Typography component="h6" variant="h5" color="secondary">
                 Linked Accounts
               </Typography>
+              <Cog />
             </Box>
             <CardBalance />
             <Box marginY={2}>
