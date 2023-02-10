@@ -66,7 +66,7 @@ const style = {
   },
   dividerArrow: {
     display: "block",
-    margin: "27px 7px 0 5px",
+    margin: "12px 7px 0 5px",
     width: "10px",
     height: "10px",
     borderWidth: 0,
@@ -249,45 +249,56 @@ function DashboardContent({ children }) {
             pr: "24px", // keep right padding when drawer closed
           }}
         >
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
+          <Box
+            display="flex"
             sx={{
-              marginRight: "36px",
-              ...(open && { display: "none" }),
+              textDecoration: "none",
+              flexGrow: 1,
+              justifyContent: "start",
+              verticalAlign: "middle",
+              alignItems: "center",
             }}
           >
-            <MenuIcon fontSize="small" />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="/"
-            sx={{
-              marginLeft: 0,
-              marginRight: ".75rem",
-            }}
-          >
-            <HomeIcon fontSize="small" />
-          </IconButton>
-          <Divider
-            orientation="vertical"
-            variant="center"
-            flexItem
-            sx={style.dividerArrow}
-          />
-          <Typography
-            component="a"
-            href="/"
-            variant="subtitle1"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1, textDecoration: "none" }}
-          >
-            Dashboard
-          </Typography>
-          <Stack spacing={{ md: 1 }} direction="row" padding={0}>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              sx={{
+                marginRight: "36px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon fontSize="small" />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              href="/"
+              sx={{
+                marginLeft: 0,
+                marginRight: ".75rem",
+              }}
+            >
+              <HomeIcon fontSize="small" />
+            </IconButton>
+            <Divider
+              orientation="vertical"
+              variant="center"
+              flexItem
+              sx={style.dividerArrow}
+            />
+            <Typography
+              component="a"
+              href="/"
+              variant="subtitle1"
+              color="inherit"
+              noWrap
+              sx={{ textDecoration: "none" }}
+            >
+              Dashboard
+            </Typography>
+          </Box>
+          <Stack spacing={{ md: 1 }} direction="row">
             <IconButton
               color="inherit"
               onClick={() => setSearchOpen(!searchOpen)}
@@ -296,8 +307,6 @@ function DashboardContent({ children }) {
             </IconButton>
             {/* <ClickAwayListener onClickAway={() => setSearchOpen(!searchOpen)}> */}
             <Box
-              // onBlur={() => setSearchOpen(!searchOpen)}
-              // onMouseLeave={() => setSearchOpen(!searchOpen)}
               hidden={searchOpen}
               component="form"
               sx={style.boxSearch}
@@ -307,7 +316,6 @@ function DashboardContent({ children }) {
               <Input
                 placeholder="Search.."
                 color="light"
-                dense
                 ref={inputRef}
                 onBlur={() => setSearchOpen(!searchOpen)}
                 autoFocus

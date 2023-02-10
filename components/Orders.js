@@ -93,7 +93,7 @@ export default function Orders() {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? "popover-cog-deposit" : undefined;
+  const id = open ? "popover-cog-orders" : undefined;
 
   return (
     <Box>
