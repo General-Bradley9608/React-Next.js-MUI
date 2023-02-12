@@ -1,11 +1,14 @@
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
 /* Components */
+import Cog from "@components/Cog/Default";
 import Chart from "@components/Chart/ReChart";
+import TabPanel from "@components/TabPanel/Default";
 
 export default function PageChart() {
   return (
@@ -20,7 +23,14 @@ export default function PageChart() {
               minHeight: 240,
             }}
           >
-            <Chart />
+            <TabPanel
+              item={
+                <Stack justifyContent="space-evenly" direction="row">
+                  <Chart />
+                  <Cog />
+                </Stack>
+              }
+            />
           </Paper>
         </Grid>
       </Container>

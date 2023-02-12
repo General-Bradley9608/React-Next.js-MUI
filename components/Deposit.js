@@ -1,33 +1,9 @@
 import * as React from "react";
-// import { Grid, Box, Divider, Link, Paper, Typography } from "@mui/material";
-import {
-  // Avatar,
-  Box,
-  Button,
-  Grid,
-  Link,
-  IconButton,
-  Divider,
-  Paper,
-  Popover,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Divider, Paper, Stack, Typography } from "@mui/material";
 
-// import ChatIcon from "@mui/icons-material/ChatOutlined";
-// import MapIcon from "@mui/icons-material/MapOutlined";
-// import EmailIcon from "@mui/icons-material/EmailOutlined";
-// import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import RefreshIcon from "@mui/icons-material/RefreshOutlined";
-import CachedIcon from "@mui/icons-material/CachedOutlined";
-import OffIcon from "@mui/icons-material/HighlightOffOutlined";
+import Cog from "@components/Cog/Default";
 
 import Title from "./Title";
-
-function preventDefault(event) {
-  event.preventDefault();
-}
 
 export default function Component(props) {
   const {
@@ -73,90 +49,14 @@ export default function Component(props) {
         type: "danger",
       },
     ],
-    cog = false,
   } = props;
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "popover-cog-deposit" : undefined;
-
   return (
-    <Box
-      display="flex"
-      p={0}
-      justifyContent="space-between"
-      flexDirection="column"
-      minHeight="100%"
-    >
-      <Grid container spacing={0}>
-        <Grid item xs={11}>
-          <Typography>Deposit</Typography>
-        </Grid>
-        <Grid item xs={1}>
-          <Box sx={{ float: "right" }}>
-            <IconButton
-              size="small"
-              aria-describedby={id}
-              children={<MoreIcon size="small" />}
-              onClick={handleClick}
-            />
-            <Popover
-              marginThreshold={0}
-              id={id}
-              open={open}
-              anchorEl={anchorEl}
-              onClose={handleClose}
-              elevation={2}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-            >
-              <Stack
-                direction="column"
-                spacing={1}
-                padding={1}
-                divider={<Divider orientation="horizontal" flexItem />}
-              >
-                <Button
-                  variant="text"
-                  size="small"
-                  startIcon={<RefreshIcon size="small" />}
-                >
-                  Refresh
-                </Button>
-                <Button
-                  variant="text"
-                  size="small"
-                  startIcon={<CachedIcon size="small" />}
-                >
-                  Reload
-                </Button>
-                <Button
-                  variant="text"
-                  size="small"
-                  startIcon={<OffIcon size="small" />}
-                >
-                  Remove
-                </Button>
-              </Stack>
-            </Popover>
-          </Box>
-        </Grid>
-      </Grid>
+    <Box p={0}>
+      <Stack direction="row" justifyContent="space-between">
+        <Typography>Deposit</Typography>
+        <Cog />
+      </Stack>
       <Grid container spacing={4}>
         {items && items.length > 0
           ? items.map((obj) => {

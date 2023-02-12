@@ -125,15 +125,30 @@ export default function Album() {
                     flexDirection: "column",
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    // sx={{
-                    //   // 16:9
-                    //   pt: "56.25%",
-                    // }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
-                  />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      zIndex: 0,
+                      ":before": {
+                        content: '" "',
+                        zIndex: 1,
+                        position: "absolute",
+                        top: 0,
+                        bottom: 0,
+                        right: 0,
+                        left: 0,
+                        background:
+                          "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
+                          "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+                      },
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      image="https://source.unsplash.com/random"
+                      alt="random"
+                    />
+                  </Box>
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Heading
