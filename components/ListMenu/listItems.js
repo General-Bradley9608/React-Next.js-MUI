@@ -6,6 +6,7 @@ import SummarizeIcon from "@mui/icons-material/Summarize";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
+import TabIcon from "@mui/icons-material/TabUnselected";
 
 import {
   Link,
@@ -65,9 +66,15 @@ export const secondaryListItems = (compact = false) => {
         <List disablePadding>
           <ListItemButton dense sx={{ pl: 4 }}>
             <ListItemIcon>
-              <StarBorder />
+              <StarBorder fontSize="small" />
             </ListItemIcon>
             <ListItemText primary="Widgets" />
+          </ListItemButton>
+          <ListItemButton dense sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <TabIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary={<Link href="/tabs">Tabs</Link>} />
           </ListItemButton>
         </List>
       </Collapse>

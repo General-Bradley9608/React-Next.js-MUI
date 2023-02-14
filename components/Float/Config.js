@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 import { Box, Fab, Button, Fade } from "@mui/material";
-// import AddIcon from "@mui/icons-material/Add";
 import Close from "@mui/icons-material/Close";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Settings from "@mui/icons-material/Settings";

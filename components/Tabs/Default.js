@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Box, Tab, Tabs } from "@mui/material";
+import PropTypes from "prop-types";
 
-export default function BasicTabs(props) {
+function BasicTabs(props) {
   const {
     items = [
       {
@@ -17,9 +18,26 @@ export default function BasicTabs(props) {
         item: "Tab Content Three",
       },
     ],
+    type = "",
+    ...rest
   } = props;
 
   const [value, setValue] = React.useState(0);
+  const style = type
+    ? {
+        ".MuiButtonBase-root.Mui-selected": {
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+          borderColor: "secondary.main",
+          padding: "12px 16px",
+          lineHeight: "1.75",
+          border: "2px",
+          display: "block",
+          borderColor: "none",
+          backgroundColor: "secondary.light",
+        },
+      }
+    : "";
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,10 +78,12 @@ export default function BasicTabs(props) {
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
+          key={value + 1}
           value={value}
           onChange={handleChange}
           aria-label={`basic tabs ${items.length}`}
-          key={value + 1}
+          {...(type ? { sx: style } : "")}
+          {...(rest ? rest : {})}
         >
           {items.length > 0 &&
             items.map((item, i) => {
@@ -71,6 +91,7 @@ export default function BasicTabs(props) {
                 <Tab
                   key={`${i + value}`}
                   label={item.title}
+                  {...(item.props ? { ...item.props } : {})}
                   {...a11yProps(i)}
                 />
               );
@@ -92,3 +113,11 @@ export default function BasicTabs(props) {
     </Box>
   );
 }
+
+BasicTabs.propTypes = {
+  type: PropTypes.string,
+  items: PropTypes.array,
+  rest: PropTypes.object,
+};
+
+export default BasicTabs;
