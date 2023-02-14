@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 
@@ -14,9 +12,13 @@ export default function BasicTabs(props) {
         title: "Tab Two",
         item: "Tab Content Two",
       },
+      {
+        title: "Tab Three",
+        item: "Tab Content Three",
+      },
     ],
   } = props;
-  // console.log(props);
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -24,11 +26,10 @@ export default function BasicTabs(props) {
   };
 
   const TabPanel = (localProps) => {
-    const { children, value, index, ...other } = localProps;
-    // console.log(children);
+    const { children, value, index, title, ...other } = localProps;
     return (
       <Box
-        key={index}
+        key={`${index}-b1`}
         role="tabpanel"
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
@@ -36,15 +37,10 @@ export default function BasicTabs(props) {
         {...other}
       >
         {value === index && (
-          <Box sx={{ p: 3 }}>
+          <Box key={`${index}-b2`} sx={{ p: 3 }}>
             {children.length &&
-              children.map((child, i) => {
-                return (
-                  <React.Fragment key={i}>
-                    {child}
-                    {i}
-                  </React.Fragment>
-                );
+              children.map((child) => {
+                return <React.Fragment key={title}>{child}</React.Fragment>;
               })}
           </Box>
         )}
@@ -54,6 +50,7 @@ export default function BasicTabs(props) {
 
   const a11yProps = (index) => {
     return {
+      key: `${index + index}`,
       id: `simple-tab-${index}`,
       "aria-controls": `simple-tabpanel-${index}`,
     };
@@ -65,22 +62,33 @@ export default function BasicTabs(props) {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label={`basic tabs ${items.length}`}
+          key={value + 1}
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          {items.length > 0 &&
+            items.map((item, i) => {
+              return (
+                <Tab
+                  key={`${i + value}`}
+                  label={item.title}
+                  {...a11yProps(i)}
+                />
+              );
+            })}
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} children={[items]} />
-      {/* {props?.item} */}
-      {/* </TabPanel> */}
-      <TabPanel value={value} index={1} children={[items]} />
-      {/* Item Two */}
-      {/* </TabPanel> */}
-      <TabPanel value={value} index={2} children={[items]} />
-      {/* Item Three */}
-      {/* </TabPanel> */}
+      {items.length > 0 &&
+        items.map((item, i) => {
+          return (
+            <TabPanel
+              key={`${item.title}-${i + value}`}
+              value={value}
+              index={i}
+              title={item.title}
+              children={[item.item]}
+            />
+          );
+        })}
     </Box>
   );
 }

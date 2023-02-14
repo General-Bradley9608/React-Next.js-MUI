@@ -9,7 +9,6 @@ import Chart from "@components/Chart/ReChart";
 import TabsDefault from "@components/Tabs/Default";
 
 export default function PageChart() {
-  
   function renderChart() {
     return (
       <Stack justifyContent="space-between" direction="column" spacing={0}>
@@ -42,7 +41,13 @@ export default function PageChart() {
               minHeight: 240,
             }}
           >
-            <TabsDefault items={renderChart()} />
+            <TabsDefault
+              items={[
+                { title: "Chart JS", item: renderChart() },
+                { title: "Chart JS Two", item: renderChart() },
+                { title: "Chart JS Three", item: renderChart() },
+              ]}
+            />
           </Paper>
         </Grid>
       </Container>

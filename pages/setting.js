@@ -19,13 +19,14 @@ import CircleIcon from "@mui/icons-material/CircleOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import PhoneIcon from "@mui/icons-material/PhoneIphoneOutlined";
+import WebIcon from "@mui/icons-material/Web";
+import ReceiptIcon from "@mui/icons-material/Receipt";
+import PeopleIcon from "@mui/icons-material/PeopleAltOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
 
 /* Components */
-// import Chart from "@components/Chart/ReChart";
-import CardBalance from "@components/Card/Balance";
 import Orders from "@components/Orders";
 import GroupButton from "@components/Group/Button";
 import TabsDefault from "@components/Tabs/Default";
@@ -172,8 +173,44 @@ export default function Dashboard() {
                 </Box>
               </Box>
             </Box>
-            <Box>
-              <TabsDefault items={<Typography>mxc</Typography>} />
+            <Box marginY={2}>
+              <TabsDefault
+                items={[
+                  {
+                    title: (
+                      <Stack direction="row" justifyContent="space-between">
+                        <Box padding={0}>
+                          <WebIcon fontSize="small" />
+                        </Box>
+                        <Box marginLeft={1}>Blog Settings</Box>
+                      </Stack>
+                    ),
+                    item: <Typography>Blog</Typography>,
+                  },
+                  {
+                    title: (
+                      <Stack direction="row" justifyContent="space-between">
+                        <Box padding={0}>
+                          <ReceiptIcon fontSize="small" />
+                        </Box>
+                        <Box marginLeft={1}>Site Settings</Box>
+                      </Stack>
+                    ),
+                    item: <Typography>Site</Typography>,
+                  },
+                  {
+                    title: (
+                      <Stack direction="row" justifyContent="space-between">
+                        <Box padding={0}>
+                          <PeopleIcon fontSize="small" />
+                        </Box>
+                        <Box marginLeft={1}>User Settings</Box>
+                      </Stack>
+                    ),
+                    item: <Typography>User</Typography>,
+                  },
+                ]}
+              />
             </Box>
           </Paper>
         </Grid>
