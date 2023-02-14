@@ -12,6 +12,7 @@ import {
   Link,
   Button,
   Divider,
+  TextField,
 } from "@mui/material";
 
 import Checkbox from "@mui/material/Checkbox";
@@ -150,33 +151,25 @@ export default function Dashboard() {
                 >
                   Blog
                 </Typography>
-                <Box>
-                  Format: <input value="dd/MM/YYYY" />
-                </Box>
-              </Box>
-              <Box item>
-                <Typography
-                  component="h4"
-                  variant="body1"
-                  color="secondary.main"
-                >
-                  Blog
-                </Typography>
-                <Box>
-                  Format: <input value="dd/MM/YYYY" />
-                </Box>
-              </Box>
-              <Box item>
-                <Typography
-                  component="h4"
-                  variant="body1"
-                  color="secondary.main"
-                >
-                  Blog
-                </Typography>
-                <Box>
-                  Format: <input value="dd/MM/YYYY" />
-                </Box>
+                <Stack py={1} spacing={4} justifyContent="stretch">
+                  <Box component="form">
+                    <TextField
+                      size="small"
+                      defaultValue="dd/MM/YYYY"
+                      label="Format: "
+                      id="format-blog"
+                      placeholder="dd/MM/YYYY"
+                    />
+                    <Button
+                      typeof="submit"
+                      variant="contained"
+                      size="medium"
+                      sx={{ marginLeft: 1, verticalAlign: "middle" }}
+                    >
+                      Save
+                    </Button>
+                  </Box>
+                </Stack>
               </Box>
             </Box>
             <Box marginY={2}>
