@@ -28,6 +28,7 @@ import DashboardLayout from "@layouts/DashboardLayout";
 import CardBalance from "@components/Card/Balance";
 import Orders from "@components/Orders";
 import GroupButton from "@components/Group/Button";
+import TabsDefault from "@components/Tabs/Default";
 
 import shadows from "@mui/material/styles/shadows";
 
@@ -123,15 +124,56 @@ export default function Dashboard() {
               p: 2,
               display: "flex",
               flexDirection: "column",
+              justifyContent: "space-between",
               minHeight: 240,
             }}
           >
-            <CardBalance />
-            <Box pt={3}>
+            <Box>
               <Button color="danger" variant="outlined">
                 Transfer
               </Button>
               <GroupButton dense />
+            </Box>
+            <Box container>
+              <Box item>
+                <Typography
+                  component="h4"
+                  variant="body1"
+                  color="secondary.main"
+                >
+                  Blog
+                </Typography>
+                <Box>
+                  Format: <input value="dd/MM/YYYY" />
+                </Box>
+              </Box>
+              <Box item>
+                <Typography
+                  component="h4"
+                  variant="body1"
+                  color="secondary.main"
+                >
+                  Blog
+                </Typography>
+                <Box>
+                  Format: <input value="dd/MM/YYYY" />
+                </Box>
+              </Box>
+              <Box item>
+                <Typography
+                  component="h4"
+                  variant="body1"
+                  color="secondary.main"
+                >
+                  Blog
+                </Typography>
+                <Box>
+                  Format: <input value="dd/MM/YYYY" />
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <TabsDefault items={<Typography>mxc</Typography>} />
             </Box>
           </Paper>
         </Grid>

@@ -1,16 +1,35 @@
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
-import Container from "@mui/material/Container";
+import { Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
+
 /* Components */
 import Cog from "@components/Cog/Default";
 import Chart from "@components/Chart/ReChart";
-import TabPanel from "@components/TabPanel/Default";
+import TabsDefault from "@components/Tabs/Default";
 
 export default function PageChart() {
+  
+  function renderChart() {
+    return (
+      <Stack justifyContent="space-between" direction="column" spacing={0}>
+        <Stack justifyContent="space-between" direction="row" spacing={0}>
+          <Box>
+            <Typography component="h4" variant="body1">
+              Chart
+            </Typography>
+          </Box>
+          <Box>
+            <Cog />
+          </Box>
+        </Stack>
+        <Box>
+          <Chart />
+        </Box>
+      </Stack>
+    );
+  }
+
   return (
     <DashboardLayout>
       <Container maxWidth="xl">
@@ -23,14 +42,7 @@ export default function PageChart() {
               minHeight: 240,
             }}
           >
-            <TabPanel
-              item={
-                <Stack justifyContent="space-evenly" direction="row">
-                  <Chart />
-                  <Cog />
-                </Stack>
-              }
-            />
+            <TabsDefault items={renderChart()} />
           </Paper>
         </Grid>
       </Container>

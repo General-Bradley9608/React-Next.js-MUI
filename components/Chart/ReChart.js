@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import {
   LineChart,
@@ -83,91 +84,99 @@ export default function ReChart() {
   const theme = useTheme();
 
   return (
-    <React.Fragment>
-      <Title>Today</Title>
+    <Stack
+      // justifyContent="space-evenly"
+      justifyContent="space-between"
+      direction="row"
+    >
+      {/* <Title>Today</Title> */}
       {/* <div style={{ width: "100%", height: 300, overflow: "visible" }}> */}
-      <ResponsiveContainer width={540} height={420}>
-        <AreaChart
-          width={730}
-          height={250}
-          data={data}
-          // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-        >
-          <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-            </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <XAxis dataKey="name" />
-          <YAxis />
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stroke="#8884d8"
-            fillOpacity={1}
-            fill="url(#colorUv)"
-          />
-          <Area
-            type="monotone"
-            dataKey="pv"
-            stroke="#82ca9d"
-            fillOpacity={1}
-            fill="url(#colorPv)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-      <ResponsiveContainer width={540} height={280}>
-        <AreaChart
-          width={530}
-          height={150}
-          data={datav}
-          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-        >
-          <defs>
-            <filter id="blurFilter">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-            </filter>
-            {/* <linearGradient id="colorUvs" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.85} />
-              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-            </linearGradient> */}
-          </defs>
-          {/* <XAxis dataKey="time" /> */}
-          {/* <YAxis dataKey="amount" /> */}
-          {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="amount"
-            stroke="#82ca9d"
-            fillOpacity={0}
-            // fill="url(#colorUvs)"
-            // width={530}
-            // height={150}
-            // data={datav}
-          />
-          <Area
-            type="monotone"
-            dataKey="amount"
-            stroke="#82ca9d"
-            strokeWidth={20}
-            fillOpacity={1}
-            fill="transparent"
+      <Box>
+        <ResponsiveContainer width={540} height={420}>
+          <AreaChart
+            width={730}
+            height={250}
+            data={data}
+            // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          >
+            <defs>
+              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <XAxis dataKey="name" />
+            <YAxis />
+            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="uv"
+              stroke="#8884d8"
+              fillOpacity={1}
+              fill="url(#colorUv)"
+            />
+            <Area
+              type="monotone"
+              dataKey="pv"
+              stroke="#82ca9d"
+              fillOpacity={1}
+              fill="url(#colorPv)"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </Box>
+      <Box>
+        <ResponsiveContainer width={540} height={280}>
+          <AreaChart
             width={530}
             height={150}
             data={datav}
-            style={{ filter: "url(#blurFilter)" }}
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+            margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          >
+            <defs>
+              <filter id="blurFilter">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+              </filter>
+              {/* <linearGradient id="colorUvs" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.85} />
+              <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+            </linearGradient> */}
+            </defs>
+            {/* <XAxis dataKey="time" /> */}
+            {/* <YAxis dataKey="amount" /> */}
+            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="amount"
+              stroke="#82ca9d"
+              fillOpacity={0}
+              // fill="url(#colorUvs)"
+              // width={530}
+              // height={150}
+              // data={datav}
+            />
+            <Area
+              type="monotone"
+              dataKey="amount"
+              stroke="#82ca9d"
+              strokeWidth={20}
+              fillOpacity={1}
+              fill="transparent"
+              width={530}
+              height={150}
+              data={datav}
+              style={{ filter: "url(#blurFilter)" }}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </Box>
       {/* </div> */}
-    </React.Fragment>
+    </Stack>
   );
 }
