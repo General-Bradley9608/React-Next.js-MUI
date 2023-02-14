@@ -201,6 +201,98 @@ export default function PageChart() {
                 ]}
               />
             </Box>
+            <Box marginBottom={2}>
+              <Typography
+                marginBottom={1}
+                color="secondary"
+                component="h4"
+                variant="subtitle2"
+              >
+                Icon Rounded
+              </Typography>
+              <TabsDefault
+                type="rounded"
+                items={[
+                  {
+                    title: "Tab One Title",
+                    item: "Tab One Content",
+                    props: {
+                      icon: <PhoneIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: { minHeight: "36px" },
+                    },
+                  },
+                  {
+                    title: "Tab Two Title",
+                    item: "Tab Two Content",
+                    props: {
+                      icon: <PhoneMissedIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: { minHeight: "36px" },
+                    },
+                  },
+                  {
+                    title: "Tab Three Title",
+                    item: "Tab Three Content",
+                    props: {
+                      icon: <PersonPinIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: { minHeight: "36px" },
+                    },
+                  },
+                ]}
+              />
+            </Box>
+            <Box marginBottom={2}>
+              <Typography
+                marginBottom={1}
+                color="secondary"
+                component="h4"
+                variant="subtitle2"
+              >
+                Icon Rounded Background
+              </Typography>
+              <TabsDefault
+                items={[
+                  {
+                    title: "Tab One Title",
+                    item: "Tab One Content",
+                    props: {
+                      icon: <PhoneIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: {
+                        minHeight: 47,
+                        backgroundColor: "secondary.light",
+                      },
+                    },
+                  },
+                  {
+                    title: "Tab Two Title",
+                    item: "Tab Two Content",
+                    props: {
+                      icon: <PhoneMissedIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: {
+                        minHeight: 47,
+                        backgroundColor: "secondary.light",
+                      },
+                    },
+                  },
+                  {
+                    title: "Tab Three Title",
+                    item: "Tab Three Content",
+                    props: {
+                      icon: <PersonPinIcon fontSize="small" />,
+                      iconPosition: "start",
+                      sx: {
+                        minHeight: 47,
+                        backgroundColor: "secondary.light",
+                      },
+                    },
+                  },
+                ]}
+              />
+            </Box>
           </Paper>
         </Grid>
       </Container>

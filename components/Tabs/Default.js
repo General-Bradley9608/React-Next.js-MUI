@@ -35,6 +35,7 @@ function BasicTabs(props) {
           display: "block",
           borderColor: "none",
           backgroundColor: "secondary.light",
+          svg: { verticalAlign: "middle" },
         },
       }
     : "";
