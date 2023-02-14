@@ -14,6 +14,12 @@ import {
   Divider,
 } from "@mui/material";
 
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+
 import CommnentIcon from "@mui/icons-material/CommentBankOutlined";
 import CircleIcon from "@mui/icons-material/CircleOutlined";
 import MapIcon from "@mui/icons-material/MapOutlined";
@@ -185,7 +191,42 @@ export default function Dashboard() {
                         <Box marginLeft={1}>Blog Settings</Box>
                       </Stack>
                     ),
-                    item: <Typography>Blog</Typography>,
+                    item: (
+                      <Box
+                        component="form"
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <FormControl component="fieldset">
+                          <FormLabel component="legend">
+                            Label Placement
+                          </FormLabel>
+                          <FormGroup aria-label="position" row>
+                            <FormControlLabel
+                              value="end"
+                              control={<Checkbox />}
+                              label="Disabled"
+                              labelPlacement="end"
+                            />
+                          </FormGroup>
+                        </FormControl>
+                        <FormControl component="fieldset">
+                          <FormLabel component="legend">
+                            Title Placement
+                          </FormLabel>
+                          <FormGroup aria-label="position" row>
+                            <FormControlLabel
+                              value="end"
+                              control={<Checkbox />}
+                              label="Disabled"
+                              labelPlacement="end"
+                            />
+                          </FormGroup>
+                        </FormControl>
+                      </Box>
+                    ),
                   },
                   {
                     title: (
