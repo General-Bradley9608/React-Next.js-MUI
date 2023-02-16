@@ -7,6 +7,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import TabIcon from "@mui/icons-material/TabUnselected";
+import PagesIcon from "@mui/icons-material/PagesOutlined";
 
 import {
   Link,
@@ -75,6 +76,14 @@ export const secondaryListItems = (compact = false) => {
               <TabIcon fontSize="small" />
             </ListItemIcon>
             <ListItemText primary={<Link href="/tabs">Tabs</Link>} />
+          </ListItemButton>
+          <ListItemButton dense sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <PagesIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText
+              primary={<Link href="/landing/filter">Landing</Link>}
+            />
           </ListItemButton>
         </List>
       </Collapse>
