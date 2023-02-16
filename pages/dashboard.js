@@ -32,7 +32,7 @@ import AvatarProfile from "@components/Avatar/Profile";
 
 import shadows from "@mui/material/styles/shadows";
 
-export default function Dashboard() {
+export default function Page() {
   return (
     <DashboardLayout>
       <DashboardToolbar />

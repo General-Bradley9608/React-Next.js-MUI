@@ -22,7 +22,7 @@ const Img = styled("img")({
   maxHeight: "100%",
 });
 
-export default function About() {
+export default function Page() {
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>

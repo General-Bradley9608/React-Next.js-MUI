@@ -68,7 +68,7 @@ export const secondaryListItems = (compact = false) => {
             <ListItemIcon>
               <StarBorder fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Widgets" />
+            <ListItemText primary={<Link href="/widgets">Widgets</Link>} />
           </ListItemButton>
           <ListItemButton dense sx={{ pl: 4 }}>
             <ListItemIcon>

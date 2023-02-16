@@ -251,7 +251,7 @@ const styledH = {
   marginBottom: "1rem",
 };
 
-export default function Index() {
+export default function Page() {
   return (
     <Box sx={styled}>
       <Container maxWidth="lg">

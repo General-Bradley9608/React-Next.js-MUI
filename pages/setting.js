@@ -40,7 +40,7 @@ import TabsDefault from "@components/Tabs/Default";
 
 import shadows from "@mui/material/styles/shadows";
 
-export default function Dashboard() {
+export default function Page() {
   return (
     <DashboardLayout>
       <Toolbar disableGutters component="nav">

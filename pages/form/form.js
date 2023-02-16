@@ -10,7 +10,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
 
-export default function FormDefault() {
+export default function Page() {
   return (
     <DashboardLayout>
       <Paper

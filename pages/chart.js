@@ -8,7 +8,7 @@ import Cog from "@components/Cog/Default";
 import Chart from "@components/Chart/ReChart";
 import TabsDefault from "@components/Tabs/Default";
 
-export default function PageChart() {
+export default function Page() {
   function renderChart() {
     return (
       <Stack justifyContent="space-between" direction="column" spacing={0}>

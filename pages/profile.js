@@ -45,7 +45,7 @@ import GroupButton from "@components/Group/Button";
 
 import shadows from "@mui/material/styles/shadows";
 
-export default function Dashboard() {
+export default function Page() {
   const dataTasks = [
     {
       id: 1,

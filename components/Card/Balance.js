@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import PropTypes from "prop-types";
+
 import BalanceIcon from "@mui/icons-material/BalanceOutlined";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import OutputIcon from "@mui/icons-material/OutputOutlined";
@@ -16,7 +18,12 @@ import {
   Popover,
 } from "@mui/material";
 
-export default function BalanceCard() {
+/* 
+function BalanceCard (props) {
+  const { post } = props;
+}
+*/
+function BalanceCard() {
   const balanceData = [
     {
       id: 1,
@@ -205,3 +212,15 @@ export default function BalanceCard() {
     </Grid>
   );
 }
+
+BalanceCard.propTypes = {
+  post: PropTypes.shape({
+    date: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    imageLabel: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default BalanceCard;

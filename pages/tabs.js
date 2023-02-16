@@ -11,7 +11,7 @@ import DashboardLayout from "@layouts/DashboardLayout";
 import Cog from "@components/Cog/Default";
 import TabsDefault from "@components/Tabs/Default";
 
-export default function PageChart() {
+export default function Page() {
   return (
     <DashboardLayout>
       <Container maxWidth="xl">
