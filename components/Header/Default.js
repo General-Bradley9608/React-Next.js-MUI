@@ -57,6 +57,7 @@ function Header(props) {
                   aria-controls={open ? "fade-menu1" : undefined}
                   aria-haspopup="true"
                   aria-expanded={open ? "true" : undefined}
+                  sx={{ paddingX: 2, mr: 2 }}
                   // onClick={handleClick}
                 >
                   <Link
@@ -93,7 +94,7 @@ function Header(props) {
                   <MenuItem onClick={handleClose}>Logout</MenuItem>
                 </Menu>
               </Grid>
-              <Divider orientation="vertical" flexItem />
+              {/* <Divider orientation="vertical" flexItem /> */}
 
               <Grid item>
                 <Button
