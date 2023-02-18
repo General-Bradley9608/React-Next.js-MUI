@@ -236,38 +236,40 @@ function Header(props) {
           </Box>
         </Stack>
       </Toolbar>
-      <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ justifyContent: "space-between", overflowX: "auto" }}
-      >
-        {sections.map((section) => (
-          <Link
-            color="primary"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{
-              px: 2,
-              py: 0.5,
-              flexShrink: 0,
-              borderRadius: 5,
-              border: 1,
-              mr: 1,
-              textDecoration: "none",
-              color: "primary.100",
-              bgcolor: "grey.100",
-              ":hover": {
-                color: "grey.600",
-                bgcolor: "grey.300",
-              },
-            }}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
+      {sections ? (
+        <Toolbar
+          component="nav"
+          variant="dense"
+          sx={{ justifyContent: "space-between", overflowX: "auto" }}
+        >
+          {sections.map((section) => (
+            <Link
+              color="primary"
+              noWrap
+              key={section.title}
+              variant="body2"
+              href={section.url}
+              sx={{
+                px: 2,
+                py: 0.5,
+                flexShrink: 0,
+                borderRadius: 5,
+                border: 1,
+                mr: 1,
+                textDecoration: "none",
+                color: "primary.100",
+                bgcolor: "grey.100",
+                ":hover": {
+                  color: "grey.600",
+                  bgcolor: "grey.300",
+                },
+              }}
+            >
+              {section.title}
+            </Link>
+          ))}
+        </Toolbar>
+      ) : null}
     </React.Fragment>
   );
 }
