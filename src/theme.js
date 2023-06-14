@@ -19,6 +19,7 @@ export const poppins = Poppins({
 // Create a theme instance.
 const theme = createTheme({
   palette: {
+    mode: "light",
     primary: {
       // main: "#556cd6",
       // main: "#6E9CE2",

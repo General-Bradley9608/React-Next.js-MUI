@@ -1,3 +1,4 @@
+"use client";
 import { Box, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 
 /* Layouts */

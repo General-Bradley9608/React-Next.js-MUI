@@ -8,9 +8,11 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import TabIcon from "@mui/icons-material/TabUnselected";
 import PagesIcon from "@mui/icons-material/PagesOutlined";
+import UserIcon from "@mui/icons-material/VerifiedUser";
+import ShopIcon from "@mui/icons-material/Shop2";
+import GalleryIcon from "@mui/icons-material/BrowseGallery";
 
 import {
-  Link,
   ListItemButton,
   ListItemText,
   ListItemIcon,
@@ -29,9 +31,9 @@ export const mainListItems = (compact = true) => (
     </ListSubheader>
     {Object.values(routeDashboard).map((route) => {
       return (
-        <ListItemButton dense key={route.to}>
+        <ListItemButton dense key={route.to} href={route.href}>
           <ListItemIcon>{route.icon}</ListItemIcon>
-          <ListItemText primary={<Link href={route.href}>{route.name}</Link>} />
+          <ListItemText primary={route.name} />
         </ListItemButton>
       );
     })}
@@ -56,34 +58,50 @@ export const secondaryListItems = (compact = false) => {
       <ListSubheader component="div" hidden={!compact} color="primary">
         Ui Elements
       </ListSubheader>
-      <ListItemButton dense>
+      <ListItemButton dense onClick={handleClick}>
         <ListItemIcon>
           <AssessmentIcon />
         </ListItemIcon>
-        <ListItemText primary={`Current month`} onClick={handleClick} />
+        <ListItemText primary={`Other Pages`} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List disablePadding>
-          <ListItemButton dense sx={{ pl: 4 }}>
+          <ListItemButton dense sx={{ pl: 4 }} href="/widgets">
             <ListItemIcon>
               <StarBorder fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary={<Link href="/widgets">Widgets</Link>} />
+            <ListItemText primary={`Widgets`} />
           </ListItemButton>
-          <ListItemButton dense sx={{ pl: 4 }}>
+          <ListItemButton dense sx={{ pl: 4 }} href="/tabs">
             <ListItemIcon>
               <TabIcon fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary={<Link href="/tabs">Tabs</Link>} />
+            <ListItemText primary={`Tabs`} />
           </ListItemButton>
-          <ListItemButton dense sx={{ pl: 4 }}>
+          <ListItemButton dense sx={{ pl: 4 }} href="/landing/filter">
             <ListItemIcon>
               <PagesIcon fontSize="small" />
             </ListItemIcon>
-            <ListItemText
-              primary={<Link href="/landing/filter">Landing</Link>}
-            />
+            <ListItemText primary={`Landing`} />
+          </ListItemButton>
+          <ListItemButton dense sx={{ pl: 4 }} href="/about">
+            <ListItemIcon>
+              <UserIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary={`About`} />
+          </ListItemButton>
+          <ListItemButton dense sx={{ pl: 4 }} href="/checkout">
+            <ListItemIcon>
+              <ShopIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary={`Checkout`} />
+          </ListItemButton>
+          <ListItemButton dense sx={{ pl: 4 }} href="/gallery">
+            <ListItemIcon>
+              <GalleryIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText primary={`Gallery`} />
           </ListItemButton>
         </List>
       </Collapse>

@@ -44,6 +44,7 @@ import Copyright from "@components/Copyright";
 import FloatConfig from "@components/Float/Config";
 import FloatNotify from "@components/Float/Notify";
 import ScrollToTop from "@components/Scroll/ToTop";
+import { ToggleColor } from "@components/Toggle/Color";
 
 /* Config */
 import { constant } from "@config/constants";
@@ -423,6 +424,7 @@ function DashboardContent({ children }) {
           {children}
           <Copyright />
           <ScrollToTop />
+          <ToggleColor />
         </Container>
       </Box>
     </Box>

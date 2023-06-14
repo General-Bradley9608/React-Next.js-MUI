@@ -104,12 +104,31 @@ export default function Page() {
             </Typography>
             <Stack
               sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
+              direction={{ lg: "row" }}
+              spacing={1}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
+              <Button size="small" variant="contained" color="primary">
+                People
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                Plants
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                Buildings
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                Portrait
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                Faces
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                Abstract
+              </Button>
+              <Button size="small" variant="contained" color="primary">
+                House
+              </Button>
             </Stack>
           </Container>
         </Box>

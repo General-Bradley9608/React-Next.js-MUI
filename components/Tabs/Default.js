@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import PropTypes from "prop-types";
@@ -48,7 +49,7 @@ function BasicTabs(props) {
     const { children, value, index, title, ...other } = localProps;
     return (
       <Box
-        key={`${index}-b1`}
+        key={`${index}-${value}b1`}
         role="tabpanel"
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
@@ -58,8 +59,8 @@ function BasicTabs(props) {
         {value === index && (
           <Box key={`${index}-b2`} sx={{ p: 3 }}>
             {children.length &&
-              children.map((child) => {
-                return <React.Fragment key={title}>{child}</React.Fragment>;
+              children.map((child, i) => {
+                return <React.Fragment key={title + i}>{child}</React.Fragment>;
               })}
           </Box>
         )}

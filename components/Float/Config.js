@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -6,6 +8,9 @@ import { Box, Fab, Button, Fade } from "@mui/material";
 import Close from "@mui/icons-material/Close";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Settings from "@mui/icons-material/Settings";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import RefreshIcon from "@mui/icons-material/RefreshOutlined";
+import OffIcon from "@mui/icons-material/HighlightOffOutlined";
 
 export default function FloatConfig() {
   const [open, setOpen] = useState(false);
@@ -49,16 +54,16 @@ export default function FloatConfig() {
         }}
       >
         <Fab color="primary" aria-label="add" size="small">
-          <FavoriteIcon fontSize="sm" />
+          <FavoriteIcon fontSize="small" />
         </Fab>
         <Fab color="secondary" aria-label="add" size="small">
-          <FavoriteIcon fontSize="sm" />
+          <MoreIcon fontSize="small" />
         </Fab>
         <Fab color="success" aria-label="add" size="small">
-          <FavoriteIcon fontSize="sm" />
+          <RefreshIcon fontSize="small" />
         </Fab>
         <Fab color="info" aria-label="add" size="small">
-          <FavoriteIcon fontSize="sm" />
+          <OffIcon fontSize="small" />
         </Fab>
         <Box sx={{ mt: "1rem", mx: "auto", textAlign: "center" }}>
           <Button variant="contained" color="primary">

@@ -8,6 +8,7 @@ import CardTravelIcon from "@mui/icons-material/CardTravel";
 import LayersIcon from "@mui/icons-material/Layers";
 import CardsIcon from "@mui/icons-material/CardMembership";
 import AccountIcon from "@mui/icons-material/AccountCircle";
+import BadgeIcon from "@mui/icons-material/Badge";
 
 /* Documentation Icons */
 import ApiIcon from "@mui/icons-material/Api";
@@ -175,6 +176,13 @@ const routeDashboard = {
     href: "/profile",
     url: "/profile",
     to: "/profile",
+  },
+  album: {
+    name: "Album",
+    icon: <BadgeIcon />,
+    href: "/album",
+    url: "/album",
+    to: "/album",
   },
 };
 
