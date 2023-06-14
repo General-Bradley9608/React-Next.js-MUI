@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import NotificationsIcon from "@mui/icons-material/Notifications";

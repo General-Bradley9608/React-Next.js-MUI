@@ -19,16 +19,18 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import RefreshIcon from "@mui/icons-material/RefreshOutlined";
 import CachedIcon from "@mui/icons-material/CachedOutlined";
 import OffIcon from "@mui/icons-material/HighlightOffOutlined";
+import AddCardIcon from "@mui/icons-material/AddCardOutlined";
 
 /* Layouts */
 import DashboardLayout from "@layouts/DashboardLayout";
 
 /* Components */
 import Chart from "@components/Chart/ReChart";
-import Deposit from "@components/Deposit";
+import Balance from "@components/Card/Balance";
 import Orders from "@components/Orders";
 import DashboardToolbar from "@components/Toolbar/Dashboard";
 import AvatarProfile from "@components/Avatar/Profile";
+import Cog from "@components/Cog/Default";
 
 import shadows from "@mui/material/styles/shadows";
 
@@ -53,7 +55,24 @@ export default function Page() {
               minHeight: "100%",
             }}
           >
-            <Deposit />
+            <Box display="flex" justifyContent="space-between" marginBottom={1}>
+              <Typography component="h6" variant="h5" color="secondary">
+                Linked Accounts
+              </Typography>
+              <Cog />
+            </Box>
+            <Balance />
+            <Box marginY={2}>
+              <Button
+                size="small"
+                variant="contained"
+                color="success"
+                endIcon={<AddCardIcon />}
+              >
+                Add Account
+              </Button>
+              {/* <GroupButton /> */}
+            </Box>
           </Paper>
         </Grid>
         <Grid item xs={12}>

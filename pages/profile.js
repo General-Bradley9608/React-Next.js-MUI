@@ -35,7 +35,9 @@ import DashboardLayout from "@layouts/DashboardLayout";
 
 /* Components */
 // import Chart from "@components/Chart/ReChart";
-import CardBalance from "@components/Card/Balance";
+// import CardBalance from "@components/Card/Balance";
+import Deposit from "@components/Deposit";
+
 import Orders from "@components/Orders";
 import AvatarProfile from "@components/Avatar/Profile";
 
@@ -169,13 +171,7 @@ export default function Page() {
               minHeight: "100%",
             }}
           >
-            <Box display="flex" justifyContent="space-between" marginBottom={1}>
-              <Typography component="h6" variant="h5" color="secondary">
-                Linked Accounts
-              </Typography>
-              <Cog />
-            </Box>
-            <CardBalance />
+            <Deposit />
             <Box marginY={2}>
               <Button
                 size="small"

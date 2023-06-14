@@ -156,7 +156,7 @@ export default function Orders() {
       </Box>
       <Box marginTop={2} marginBottom={2}>
         <Table
-          size="large"
+          size="small"
           sx={{
             "thead > tr:first-child": {
               backgroundColor: "secondary.light",
